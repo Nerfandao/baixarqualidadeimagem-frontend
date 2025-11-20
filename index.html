@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Baixar Qualidade da Imagem – Transforme Fotos em Imagens de Meme</title>
+    <meta name="description"
+        content="Ferramenta grátis para baixar a qualidade de imagens online. Pixelize, adicione ruído e crie memes rapidamente. Sem cadastro.">
+    <meta name="keywords"
+        content="baixar qualidade da imagem, reduzir qualidade da imagem, imagem qualidade zoada, pixelizar imagem, fazer imagem de meme">
+    <link rel="canonical" href="https://baixarqualidadeimagem.com.br/">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Baixar Qualidade da Imagem – Transforme Fotos em Imagens de Meme">
+    <meta property="og:description"
+        content="Ferramenta grátis para baixar a qualidade de imagens online. Pixelize, adicione ruído e crie memes rapidamente.">
+    <meta property="og:url" content="https://baixarqualidadeimagem.com.br/">
+    <meta property="og:site_name" content="BaixarQualidadeImagem">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://baixarqualidadeimagem.com.br/assets/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- JSON-LD Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "BaixarQualidadeImagem",
+        "description": "Ferramenta grátis para baixar a qualidade de imagens online",
+        "url": "https://baixarqualidadeimagem.com.br/",
+        "inLanguage": "pt-BR",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "Web",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "BRL"
+        }
+    }
+    </script>
+</head>
+
+<body>
+    <header>
+        <nav class="container">
+            <a href="/" class="logo">
+                <img src="assets/logo.svg" alt="BaixarQualidadeImagem" width="64px" height="64px">
+            </a>
+            <ul class="nav-links">
+                <li><a href="/">Início</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="privacidade.html">Privacidade</a></li>
+                <li><a href="termos.html">Termos</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ADSENSE_TOPO -->
+    <!-- Inserir código do Google AdSense aqui após aprovação -->
+    <div class="ad-placeholder" id="ad-topo">
+        <!-- AdSense Topo -->
+    </div>
+
+    <main class="container">
+        <section class="hero">
+            <h1>Baixar Qualidade da Imagem Online</h1>
+            <p class="subtitle">Transforme suas fotos em memes de baixa qualidade com pixelização e ruído em segundos!
+            </p>
+        </section>
+
+        <section class="upload-section">
+            <div class="upload-area" id="uploadArea">
+                <svg class="upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                    <polyline points="17 8 12 3 7 8"></polyline>
+                    <line x1="12" y1="3" x2="12" y2="15"></line>
+                </svg>
+                <p class="upload-text">Arraste sua imagem aqui ou clique para selecionar</p>
+                <p class="upload-hint">PNG, JPG ou JPEG (máx. 10MB)</p>
+                <input type="file" id="fileInput" accept="image/png,image/jpeg,image/jpg" hidden>
+            </div>
+            <div class="error-message" id="errorMessage"></div>
+        </section>
+
+        <section class="preview-section" id="previewSection" style="display: none;">
+            <div class="preview-container">
+                <div class="preview-box">
+                    <h3>Original</h3>
+                    <img id="originalPreview" alt="Imagem original">
+                    <p class="image-info" id="originalInfo"></p>
+                </div>
+                <div class="preview-box">
+                    <h3>Resultado</h3>
+                    <div id="processedPreview" class="processed-placeholder">
+                        <p>Aguardando processamento...</p>
+                    </div>
+                    <p class="image-info" id="processedInfo"></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ADSENSE_MEIO -->
+        <!-- Inserir código do Google AdSense aqui após aprovação -->
+        <div class="ad-placeholder" id="ad-meio">
+            <!-- AdSense Meio -->
+        </div>
+
+        <section class="controls-section" id="controlsSection" style="display: none;">
+            <h2>Configurações de Processamento</h2>
+
+            <div class="control-group">
+                <label>Modo Pré-definido</label>
+                <div class="mode-buttons">
+                    <button class="mode-btn" data-mode="baixa">Baixa Qualidade</button>
+                    <button class="mode-btn active" data-mode="media">Média Qualidade</button>
+                    <button class="mode-btn" data-mode="extrema">Extrema (Meme)</button>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label for="pixelSlider">Pixelização: <span id="pixelValue">4</span>x</label>
+                <input type="range" id="pixelSlider" min="2" max="20" value="4" step="1">
+            </div>
+
+            <div class="control-group">
+                <label for="qualitySlider">Compressão JPEG: <span id="qualityValue">50</span>%</label>
+                <input type="range" id="qualitySlider" min="10" max="95" value="50" step="5">
+            </div>
+
+            <div class="control-group">
+                <label for="noiseSlider">Ruído: <span id="noiseValue">30</span>%</label>
+                <input type="range" id="noiseSlider" min="0" max="100" value="30" step="10">
+            </div>
+
+            <div class="action-buttons">
+                <button id="processBtn" class="btn btn-primary">Processar Imagem</button>
+                <button id="downloadBtn" class="btn btn-secondary" style="display: none;">Baixar Imagem</button>
+                <button id="resetBtn" class="btn btn-tertiary">Nova Imagem</button>
+            </div>
+        </section>
+
+        <section class="info-section">
+            <h2>Como Funciona?</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Upload</h3>
+                    <p>Faça upload da sua imagem (PNG ou JPG até 10MB)</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Configure</h3>
+                    <p>Escolha o nível de "zoeira" e ajuste os parâmetros</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Baixe</h3>
+                    <p>Processe e baixe sua imagem de meme em segundos</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ADSENSE_RODAPE -->
+    <!-- Inserir código do Google AdSense aqui após aprovação -->
+    <div class="ad-placeholder" id="ad-rodape">
+        <!-- AdSense Rodapé -->
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 BaixarQualidadeImagem. Todos os direitos reservados.</p>
+            <ul class="footer-links">
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="privacidade.html">Privacidade</a></li>
+                <li><a href="termos.html">Termos de Uso</a></li>
+                <li><a href="mailto:contato@baixarqualidadeimagem.com.br">Contato</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script src="js/app.js"></script>
+</body>
+
+</html>
