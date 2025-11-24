@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://baixarqualidadeimagem-frontend.vercel.app/sitemap.xml
