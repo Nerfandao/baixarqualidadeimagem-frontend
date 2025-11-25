@@ -1,5 +1,5 @@
 // Configuração da API - Alterar para URL do seu backend em produção
-const API_URL = 'http://localhost:8080/api';
+const API_URL = 'https://baixarqualidadeimagem-backend.onrender.com/api';
 
 // Estado da aplicação
 let uploadedFile = null;
