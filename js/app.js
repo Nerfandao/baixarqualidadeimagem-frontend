@@ -130,6 +130,24 @@ function handleFile(file) {
         return;
     }
 
+    // Verificar dimensões da imagem
+    const img = new Image();
+    img.onload = function () {
+        if (this.width > 3000 || this.height > 3000) {
+            Swal.fire({
+                icon: 'info',
+                title: 'Imagem Grande Detectada',
+                html: `Sua imagem tem <strong>${this.width}x${this.height}px</strong>.<br>
+                       Ela será redimensionada automaticamente para otimizar o processamento.`,
+                confirmButtonText: 'Entendi',
+                confirmButtonColor: '#0B5FFF',
+                iconColor: '#FFD166'
+            });
+        }
+        showPreview(file);
+    };
+    img.src = URL.createObjectURL(file);
+
     uploadedFile = file;
     hideError();
     showPreview(file);
