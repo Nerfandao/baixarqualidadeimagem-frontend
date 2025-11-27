@@ -3,14 +3,20 @@
 
 <head>
     <meta charset="UTF-8">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9144276134760026"
+        crossorigin="anonymous"></script>
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="google-site-verification" content="n-yBNOx6XbA-NmBRDEDR9xAbzflKAdJIaHqSaSNHd4Y" />
     <title>Baixar Qualidade da Imagem – Transforme Fotos em Imagens de Meme</title>
     <meta name="description"
         content="Ferramenta grátis para baixar a qualidade de imagens online. Pixelize, adicione ruído e crie memes rapidamente. Sem cadastro.">
     <meta name="keywords"
-        content="baixar qualidade da imagem, reduzir qualidade da imagem, imagem qualidade zoada, pixelizar imagem, fazer imagem de meme">
+        content="baixar qualidade da imagem, reduzir qualidade da imagem, imagem qualidade zoada, pixelizar imagem, fazer imagem de meme, low quality image, reduce image quality, pixelate image, low quality meme maker, deep fried meme, image quality reducer, meme generator low quality, compress image badly, worsen image quality">
     <link rel="canonical" href="https://baixarqualidadeimagem.com.br/">
+
+    <!-- Hreflang para SEO Internacional -->
+    <link rel="alternate" hreflang="pt-br" href="https://baixarqualidadeimagem.com.br/" />
+    <link rel="alternate" hreflang="en" href="https://baixarqualidadeimagem.com.br/" />
+    <link rel="alternate" hreflang="x-default" href="https://baixarqualidadeimagem.com.br/" />
 
     <!-- Open Graph -->
     <meta property="og:title" content="Baixar Qualidade da Imagem – Transforme Fotos em Imagens de Meme">
@@ -20,18 +26,20 @@
     <meta property="og:site_name" content="BaixarQualidadeImagem">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://baixarqualidadeimagem.com.br/assets/og-image.png">
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:locale:alternate" content="en_US" />
     <meta name="twitter:card" content="summary_large_image">
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="assets/favicon.png">
 
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
-
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <link rel="stylesheet" href="css/styles.css">
 
@@ -59,7 +67,7 @@
     <header>
         <nav class="container">
             <a href="/" class="logo">
-                <img src="assets/logo.svg" alt="BaixarQualidadeImagem" width="64px" height="64px">
+                <img src="assets/logo.svg" alt="BaixarQualidadeImagem" width="200" height="40">
             </a>
             <ul class="nav-links">
                 <li><a href="/">Início</a></li>
@@ -91,8 +99,8 @@
                     <line x1="12" y1="3" x2="12" y2="15"></line>
                 </svg>
                 <p class="upload-text">Arraste sua imagem aqui ou clique para selecionar</p>
-                <p class="upload-hint">PNG, JPG ou JPEG (máx. 10MB)</p>
-                <input type="file" id="fileInput" accept="image/png,image/jpeg,image/jpg" hidden>
+                <p class="upload-hint">PNG, JPG, JPEG ou WEBP (máx. 10MB)</p>
+                <input type="file" id="fileInput" accept="image/png,image/jpeg,image/jpg,image/webp" hidden>
             </div>
             <div class="error-message" id="errorMessage"></div>
         </section>
@@ -147,6 +155,14 @@
                 <input type="range" id="noiseSlider" min="0" max="100" value="30" step="10">
             </div>
 
+            <div class="control-group">
+                <label>Formato de Saída</label>
+                <div class="format-buttons">
+                    <button class="format-btn active" data-format="jpeg">JPEG</button>
+                    <button class="format-btn" data-format="png">PNG</button>
+                </div>
+            </div>
+
             <div class="action-buttons">
                 <button id="processBtn" class="btn btn-primary">Processar Imagem</button>
                 <button id="downloadBtn" class="btn btn-secondary" style="display: none;">Baixar Imagem</button>
@@ -172,6 +188,66 @@
                     <h3>Baixe</h3>
                     <p>Processe e baixe sua imagem de meme em segundos</p>
                 </div>
+            </div>
+        </section>
+
+        <!-- SEO Content Section -->
+        <section class="seo-content">
+            <div class="seo-container">
+                <h2>O que é o BaixarQualidadeImagem?</h2>
+                <p>
+                    O <strong>BaixarQualidadeImagem</strong> é uma ferramenta online gratuita e sem cadastro para
+                    reduzir a qualidade de imagens de forma proposital. Se você já se perguntou "como deixar uma imagem
+                    com qualidade ruim?" ou "como fazer meme de baixa qualidade?", este é o site perfeito para você.
+                    Nossa plataforma permite transformar qualquer foto em uma imagem de meme no estilo "low quality",
+                    "deep fried" ou "nuked meme" com apenas alguns cliques.
+                </p>
+
+                <h3>Como Funciona o Redutor de Qualidade de Imagem?</h3>
+                <p>
+                    O processo é extremamente simples e rápido. Primeiro, você faz o <strong>upload da sua
+                        imagem</strong> (aceitamos PNG, JPG, JPEG e WEBP até 10MB). Em seguida, escolhe o nível de
+                    degradação desejado: Baixa Qualidade, Média Qualidade ou Extrema (ideal para memes). Você pode
+                    ajustar manualmente três parâmetros: <strong>pixelização</strong> (deixa a imagem quadriculada),
+                    <strong>compressão JPEG</strong> (adiciona artefatos de compressão) e <strong>ruído</strong>
+                    (granulação visual). Clique em processar e pronto! Em segundos sua imagem estará pronta para
+                    download no estilo "zoada" que você queria.
+                </p>
+
+                <h3>Para Que Serve Piorar a Qualidade de uma Imagem?</h3>
+                <p>
+                    Reduzir propositalmente a qualidade de imagens se tornou uma forma de arte na internet,
+                    especialmente na cultura de memes. Imagens com baixa qualidade, pixeladas ou com muito ruído
+                    transmitem humor, ironia e nostalgia. São perfeitas para criar <strong>memes engraçados</strong>,
+                    satirizar situações cotidianas, fazer paródias de imagens famosas ou simplesmente adicionar um
+                    efeito "antigo" ou "meme frito" (deep fried meme). Nossa ferramenta é usada por criadores de
+                    conteúdo, administradores de páginas de humor, designers que querem efeitos vintage e qualquer
+                    pessoa que queira fazer suas fotos ficarem intencionalmente ruins para fins criativos.
+                </p>
+
+                <h3>Por Que Usar o BaixarQualidadeImagem ao Invés de Outros Sites?</h3>
+                <p>
+                    Diferente de outras ferramentas que apenas comprimem imagens para economizar espaço, nós oferecemos
+                    <strong>controle total sobre como você quer piorar sua imagem</strong>. Você não está tentando
+                    otimizar arquivos - está criando arte de baixa qualidade de forma intencional! Nosso site é 100%
+                    gratuito, não exige cadastro, funciona perfeitamente em celulares (mobile-first), processa imagens
+                    rapidamente e oferece três modos prontos além de controles manuais avançados. Além disso, suas
+                    imagens são automaticamente deletadas do servidor em 24 horas, garantindo privacidade total.
+                </p>
+
+                <h3>Palavras-Chave e Termos Relacionados</h3>
+                <p>
+                    Se você chegou aqui procurando por: <strong>como piorar qualidade de imagem</strong>,
+                    <strong>reduzir qualidade jpg online</strong>, <strong>deixar foto pixelada de propósito</strong>,
+                    <strong>fazer imagem de meme ruim</strong>, <strong>deep fried meme generator</strong>, <strong>low
+                        quality image maker</strong>, <strong>nuked meme creator</strong>, <strong>adicionar ruído em
+                        foto online</strong>, <strong>compressor de imagem ruim</strong>, <strong>pixelizar imagem
+                        grátis</strong>, <strong>meme quality reducer</strong>, <strong>ferramenta para zoar
+                        foto</strong>, <strong>crusty meme generator</strong> ou <strong>como fazer imagem ficar com
+                        qualidade zoada</strong> - você está no lugar certo! Nossa plataforma foi desenvolvida
+                    especificamente para criar imagens de baixa qualidade de forma rápida, fácil e profissional, seja
+                    para memes, projetos criativos ou simplesmente por diversão.
+                </p>
             </div>
         </section>
     </main>

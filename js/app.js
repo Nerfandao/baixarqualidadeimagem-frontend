@@ -130,50 +130,68 @@ function handleFile(file) {
         return;
     }
 
-    // Verificar dimensões da imagem
-    const img = new Image();
-    img.onload = function () {
-        if (this.width > 3000 || this.height > 3000) {
-            Swal.fire({
-                icon: 'info',
-                title: 'Imagem Grande Detectada',
-                html: `Sua imagem tem <strong>${this.width}x${this.height}px</strong>.<br>
-                       Ela será redimensionada automaticamente para otimizar o processamento.`,
-                confirmButtonText: 'Entendi',
-                confirmButtonColor: '#0B5FFF',
-                iconColor: '#FFD166'
-            });
-        }
-        showPreview(file);
-    };
-    img.src = URL.createObjectURL(file);
-
     uploadedFile = file;
     hideError();
     showPreview(file);
 }
 
 function showPreview(file) {
+    // Mostrar loading
+    Swal.fire({
+        title: 'Carregando imagem...',
+        html: 'Preparando preview',
+        allowOutsideClick: false,
+        didOpen: () => {
+            Swal.showLoading();
+        }
+    });
+
     const reader = new FileReader();
 
     reader.onload = (e) => {
-        originalPreview.src = e.target.result;
-
-        // Calcular dimensões
         const img = new Image();
+
         img.onload = () => {
+            // Imagem carregou com sucesso
+            originalPreview.src = e.target.result;
+
             const sizeKB = (file.size / 1024).toFixed(2);
             originalInfo.textContent = `${img.width}x${img.height} • ${sizeKB} KB`;
+
+            previewSection.style.display = 'block';
+            controlsSection.style.display = 'block';
+
+            // Reset processed preview
+            processedPreview.innerHTML = '<p>Aguardando processamento...</p>';
+            processedInfo.textContent = '';
+            downloadBtn.style.display = 'none';
+
+            // Fechar loading
+            Swal.close();
+
+            // Scroll suave até a preview (importante no mobile)
+            previewSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
         };
+
+        img.onerror = () => {
+            Swal.fire({
+                icon: 'error',
+                title: 'Erro ao carregar',
+                text: 'Não foi possível carregar a imagem. Tente novamente ou use outra imagem.',
+                confirmButtonColor: '#0B5FFF'
+            });
+        };
+
         img.src = e.target.result;
+    };
 
-        previewSection.style.display = 'block';
-        controlsSection.style.display = 'block';
-
-        // Reset processed preview
-        processedPreview.innerHTML = '<p>Aguardando processamento...</p>';
-        processedInfo.textContent = '';
-        downloadBtn.style.display = 'none';
+    reader.onerror = () => {
+        Swal.fire({
+            icon: 'error',
+            title: 'Erro ao ler arquivo',
+            text: 'Não foi possível ler o arquivo. Tente novamente.',
+            confirmButtonColor: '#0B5FFF'
+        });
     };
 
     reader.readAsDataURL(file);
