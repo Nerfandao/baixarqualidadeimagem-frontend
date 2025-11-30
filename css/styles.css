@@ -5,6 +5,14 @@
     box-sizing: border-box;
 }
 
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
+}
+
 :root {
     --primary: #0B5FFF;
     --secondary: #FFD166;
@@ -46,7 +54,8 @@ nav {
 }
 
 .logo img {
-    height: 36px;
+    margin-top: 15%;
+    height: 30px;
     width: auto;
 }
 
@@ -441,13 +450,68 @@ input[type="range"]::-moz-range-thumb {
     font-weight: 600;
 }
 
+/* Editorial Content Sections */
+.editorial-section {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: var(--white);
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(11, 95, 255, 0.08);
+}
+
+.editorial-section h2 {
+    font-size: 24px;
+    color: var(--text);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.editorial-section p {
+    font-size: 16px;
+    line-height: 1.7;
+    color: #5A6B7F;
+    margin-bottom: 16px;
+    text-align: center;
+}
+
+.editorial-section ul {
+    font-size: 15px;
+    line-height: 1.8;
+    color: #5A6B7F;
+    padding-left: 20px;
+    margin: 20px auto;
+    max-width: 600px;
+}
+
+.editorial-section li {
+    margin-bottom: 12px;
+}
+
+.editorial-section strong {
+    color: var(--text);
+    font-weight: 600;
+}
+
 /* Footer */
 footer {
     background-color: var(--text);
     color: var(--white);
-    padding: 40px 20px;
-    margin-top: 80px;
+    padding: 40px 0;
+    margin: 80px 0 0 0;
     text-align: center;
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+}
+
+footer .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
 .footer-links {
@@ -456,6 +520,7 @@ footer {
     gap: 24px;
     justify-content: center;
     margin-top: 20px;
+    flex-wrap: wrap;
 }
 
 .footer-links a {
@@ -539,6 +604,24 @@ footer {
     .seo-content p {
         font-size: 15px;
         text-align: left;
+    }
+
+    .editorial-section {
+        padding: 20px;
+        margin: 30px 16px;
+    }
+
+    .editorial-section h2 {
+        font-size: 20px;
+    }
+
+    .editorial-section p {
+        font-size: 15px;
+    }
+
+    .editorial-section ul {
+        font-size: 14px;
+        padding-left: 16px;
     }
 }
 
