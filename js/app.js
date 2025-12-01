@@ -117,9 +117,9 @@ function handleFileSelect(e) {
 // Validação e preview do arquivo
 function handleFile(file) {
     // Validar tipo
-    const validTypes = ['image/png', 'image/jpeg', 'image/jpg'];
+    const validTypes = ['image/png', 'image/jpeg', 'image/jpg', 'image/webp'];
     if (!validTypes.includes(file.type)) {
-        showError('Formato inválido. Use PNG, JPG ou JPEG.');
+        showError('Formato inválido. Use PNG, WEBP, JPG ou JPEG.');
         return;
     }
 
