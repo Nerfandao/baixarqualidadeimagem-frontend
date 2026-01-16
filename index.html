@@ -156,6 +156,27 @@
             </div>
         </section>
 
+        <section class="info-section">
+            <h2>Como Funciona?</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Upload</h3>
+                    <p>Faça upload da sua imagem (PNG ou JPG até 10MB)</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Configure</h3>
+                    <p>Escolha o nível de "zoeira" e ajuste os parâmetros</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Baixe</h3>
+                    <p>Processe e baixe sua imagem de meme em segundos</p>
+                </div>
+            </div>
+        </section>
+
         <!-- Conteúdo Editorial Intermediário -->
         <section class="editorial-section">
             <h2>Por Que Degradar Imagens Propositalmente?</h2>
@@ -186,27 +207,6 @@
                 até
                 memes completamente distorcidos no estilo "nuked" ou "crusty meme".
             </p>
-        </section>
-
-        <section class="info-section">
-            <h2>Como Funciona?</h2>
-            <div class="steps">
-                <div class="step">
-                    <div class="step-number">1</div>
-                    <h3>Upload</h3>
-                    <p>Faça upload da sua imagem (PNG ou JPG até 10MB)</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <h3>Configure</h3>
-                    <p>Escolha o nível de "zoeira" e ajuste os parâmetros</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <h3>Baixe</h3>
-                    <p>Processe e baixe sua imagem de meme em segundos</p>
-                </div>
-            </div>
         </section>
 
         <!-- SEO Content Section -->
@@ -297,19 +297,50 @@
             </p>
         </section>
 
-        <footer>
+        <!-- SEÇÃO DE DOAÇÃO -->
+        <section class="donation-section">
             <div class="container">
-                <p>&copy; 2025 BaixarQualidadeImagem. Todos os direitos reservados.</p>
-                <ul class="footer-links">
-                    <li><a href="sobre.html">Sobre</a></li>
-                    <li><a href="privacidade.html">Privacidade</a></li>
-                    <li><a href="termos.html">Termos de Uso</a></li>
-                    <!-- <li><a href="mailto:contato@baixarqualidadeimagem.com.br">Contato</a></li> -->
-                </ul>
+                <div class="donation-content">
+                    <div class="donation-text">
+                        <h2>❤️ Apoie este projeto</h2>
+                        <p>Esta ferramenta é totalmente <strong>gratuita</strong> e mantida de forma independente.</p>
+                        <p>Se ela te ajudou a criar seus memes, considere fazer uma doação via PIX para manter o projeto no ar!</p>
+                        <button id="showDonationBtn" class="btn btn-donation">
+                            💙 Fazer uma doação
+                        </button>
+                    </div>
+                    <div class="donation-qrcode">
+                        <img src="assets/qrcode-pix.png" alt="QR Code PIX para doação" class="qrcode-image">
+                        <p class="qrcode-caption">Escaneie o QR Code ou clique no botão</p>
+                    </div>
+                </div>
             </div>
-        </footer>
+        </section>
 
-        <script src="js/app.js"></script>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 BaixarQualidadeImagem. Todos os direitos reservados.</p>
+            <ul class="footer-links">
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="privacidade.html">Privacidade</a></li>
+                <li><a href="termos.html">Termos de Uso</a></li>
+                <li><a href="#" id="footerDonationLink">💙 Apoiar o Projeto</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script src="js/app.js"></script>
+    
+    <script>
+        // Event listeners para abrir popup de doação
+        document.getElementById('showDonationBtn')?.addEventListener('click', showDonationPopup);
+        document.getElementById('footerDonationLink')?.addEventListener('click', (e) => {
+            e.preventDefault();
+            showDonationPopup();
+        });
+    </script>
 </body>
 
 </html>

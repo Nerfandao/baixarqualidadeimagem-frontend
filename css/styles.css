@@ -493,6 +493,111 @@ input[type="range"]::-moz-range-thumb {
     font-weight: 600;
 }
 
+/* Seção de Doação */
+.donation-section {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 60px 20px;
+    margin: 60px 0 0 0;
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+}
+
+.donation-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.donation-text {
+    flex: 1;
+    color: white;
+}
+
+.donation-text h2 {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: white;
+}
+
+.donation-text p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 12px;
+    color: rgba(255, 255, 255, 0.95);
+    text-align: left;
+}
+
+.donation-text strong {
+    font-weight: 600;
+    color: #fff;
+}
+
+.btn-donation {
+    background: white;
+    color: #667eea;
+    padding: 14px 32px;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.btn-donation:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+    background: #f7fafc;
+}
+
+.donation-qrcode {
+    flex: 0 0 auto;
+    text-align: center;
+}
+
+.qrcode-image {
+    width: 200px;
+    height: 200px;
+    border-radius: 12px;
+    background: white;
+    padding: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.qrcode-image:hover {
+    transform: scale(1.05);
+}
+
+.qrcode-caption {
+    margin-top: 12px;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 500;
+}
+
+/* Link de doação no footer */
+#footerDonationLink {
+    color: #667eea;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+#footerDonationLink:hover {
+    color: #764ba2;
+    text-decoration: underline;
+}
+
 /* Footer */
 footer {
     background-color: var(--text);
@@ -531,6 +636,22 @@ footer .container {
 
 .footer-links a:hover {
     color: var(--secondary);
+}
+
+/* Ajustes no popup do SweetAlert2 */
+.swal2-popup {
+    font-family: 'Inter', sans-serif;
+}
+
+.swal2-html-container {
+    margin: 0;
+}
+
+.swal2-confirm,
+.swal2-cancel {
+    font-weight: 600;
+    padding: 10px 24px;
+    border-radius: 6px;
 }
 
 /* Responsive - Mobile */
@@ -622,6 +743,36 @@ footer .container {
     .editorial-section ul {
         font-size: 14px;
         padding-left: 16px;
+    }
+
+    /* Doação responsivo */
+    .donation-section {
+        padding: 40px 20px;
+    }
+    
+    .donation-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+    }
+    
+    .donation-text h2 {
+        font-size: 26px;
+    }
+    
+    .donation-text p {
+        font-size: 16px;
+        text-align: center;
+    }
+    
+    .qrcode-image {
+        width: 180px;
+        height: 180px;
+    }
+    
+    .btn-donation {
+        width: 100%;
+        max-width: 300px;
     }
 }
 

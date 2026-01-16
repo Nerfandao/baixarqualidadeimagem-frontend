@@ -3,6 +3,7 @@ const API_URL = 'https://baixarqualidadeimagem-backend.onrender.com/api';
 
 // Estado da aplicação
 let uploadedFile = null;
+let uploadedFileId = null;
 let processedImageId = null;
 let currentSettings = {
     mode: 'media',
@@ -44,15 +45,24 @@ const presetModes = {
 // Inicialização
 document.addEventListener('DOMContentLoaded', () => {
     setupEventListeners();
+    console.log('App inicializado');
 });
 
 function setupEventListeners() {
     // Upload events
-    uploadArea.addEventListener('click', () => fileInput.click());
+    uploadArea.addEventListener('click', () => {
+        console.log('Upload area clicada');
+        fileInput.click();
+    });
+    
     uploadArea.addEventListener('dragover', handleDragOver);
     uploadArea.addEventListener('dragleave', handleDragLeave);
     uploadArea.addEventListener('drop', handleDrop);
-    fileInput.addEventListener('change', handleFileSelect);
+    
+    fileInput.addEventListener('change', (e) => {
+        console.log('File input change detectado');
+        handleFileSelect(e);
+    });
 
     // Mode buttons
     document.querySelectorAll('.mode-btn').forEach(btn => {
@@ -108,7 +118,16 @@ function handleDrop(e) {
 }
 
 function handleFileSelect(e) {
+    console.log('handleFileSelect chamado');
+    
+    if (!e.target.files || e.target.files.length === 0) {
+        console.log('Nenhum arquivo selecionado');
+        return;
+    }
+    
     const file = e.target.files[0];
+    console.log('Arquivo selecionado:', file.name, file.type, file.size);
+    
     if (file) {
         handleFile(file);
     }
@@ -116,9 +135,18 @@ function handleFileSelect(e) {
 
 // Validação e preview do arquivo
 function handleFile(file) {
+    console.log('Processando arquivo:', file.name);
+    
     // Validar tipo
     const validTypes = ['image/png', 'image/jpeg', 'image/jpg', 'image/webp'];
-    if (!validTypes.includes(file.type)) {
+    const fileType = file.type.toLowerCase();
+    
+    const fileName = file.name.toLowerCase();
+    const validExtensions = ['.png', '.jpg', '.jpeg', '.webp'];
+    const hasValidExtension = validExtensions.some(ext => fileName.endsWith(ext));
+    
+    if (!validTypes.includes(fileType) && !hasValidExtension) {
+        console.log('Tipo inválido:', fileType);
         showError('Formato inválido. Use PNG, WEBP, JPG ou JPEG.');
         return;
     }
@@ -126,35 +154,72 @@ function handleFile(file) {
     // Validar tamanho (10MB)
     const maxSize = 10 * 1024 * 1024;
     if (file.size > maxSize) {
+        console.log('Arquivo muito grande:', file.size);
         showError('Arquivo muito grande. Tamanho máximo: 10MB.');
         return;
     }
+    
+    if (file.size < 100) {
+        console.log('Arquivo muito pequeno:', file.size);
+        showError('Arquivo parece estar corrompido ou vazio.');
+        return;
+    }
 
+    console.log('Arquivo válido, fazendo upload');
     uploadedFile = file;
     hideError();
-    showPreview(file);
+    
+    // SOLUÇÃO: Upload direto para o servidor ao invés de preview local
+    uploadAndShowPreview(file);
 }
 
-function showPreview(file) {
+// Upload e preview via servidor (solução para mobile)
+async function uploadAndShowPreview(file) {
+    console.log('Fazendo upload para servidor:', file.name);
+    
     // Mostrar loading
     Swal.fire({
         title: 'Carregando imagem...',
-        html: 'Preparando preview',
+        html: 'Fazendo upload...',
         allowOutsideClick: false,
         didOpen: () => {
             Swal.showLoading();
         }
     });
 
-    const reader = new FileReader();
+    try {
+        // Upload da imagem para o servidor
+        const formData = new FormData();
+        formData.append('file', file);
 
-    reader.onload = (e) => {
+        const uploadResponse = await fetch(`${API_URL}/upload`, {
+            method: 'POST',
+            body: formData
+        });
+
+        if (!uploadResponse.ok) {
+            const errorText = await uploadResponse.text();
+            console.error('Erro no upload:', errorText);
+            throw new Error('Erro no upload da imagem');
+        }
+
+        const uploadData = await uploadResponse.json();
+        uploadedFileId = uploadData.fileId;
+        
+        console.log('Upload concluído, fileId:', uploadedFileId);
+
+        // Usar a URL do servidor para o preview (resolve problema mobile)
+        const previewUrl = `${API_URL}/download/${uploadedFileId}`;
+        
+        // Carregar imagem do servidor
         const img = new Image();
-
+        
         img.onload = () => {
-            // Imagem carregou com sucesso
-            originalPreview.src = e.target.result;
-
+            console.log('Preview carregado do servidor:', img.width, 'x', img.height);
+            
+            // Exibir preview
+            originalPreview.src = previewUrl;
+            
             const sizeKB = (file.size / 1024).toFixed(2);
             originalInfo.textContent = `${img.width}x${img.height} • ${sizeKB} KB`;
 
@@ -169,32 +234,32 @@ function showPreview(file) {
             // Fechar loading
             Swal.close();
 
-            // Scroll suave até a preview (importante no mobile)
-            previewSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            // Scroll suave até a seção de controles
+            setTimeout(() => {
+                controlsSection.scrollIntoView({ 
+                    behavior: 'smooth', 
+                    block: 'start' 
+                });
+            }, 300);
         };
-
+        
         img.onerror = () => {
-            Swal.fire({
-                icon: 'error',
-                title: 'Erro ao carregar',
-                text: 'Não foi possível carregar a imagem. Tente novamente ou use outra imagem.',
-                confirmButtonColor: '#0B5FFF'
-            });
+            console.error('Erro ao carregar preview do servidor');
+            throw new Error('Erro ao carregar preview');
         };
+        
+        img.src = previewUrl;
 
-        img.src = e.target.result;
-    };
-
-    reader.onerror = () => {
+    } catch (error) {
+        console.error('Erro no upload:', error);
+        
         Swal.fire({
             icon: 'error',
-            title: 'Erro ao ler arquivo',
-            text: 'Não foi possível ler o arquivo. Tente novamente.',
+            title: 'Erro ao carregar',
+            text: 'Não foi possível fazer upload da imagem. Verifique sua conexão e tente novamente.',
             confirmButtonColor: '#0B5FFF'
         });
-    };
-
-    reader.readAsDataURL(file);
+    }
 }
 
 // Mudança de modo
@@ -238,7 +303,7 @@ function handleFormatChange(format) {
 
 // Processar imagem
 async function processImage() {
-    if (!uploadedFile) {
+    if (!uploadedFileId) {
         showError('Nenhuma imagem selecionada.');
         return;
     }
@@ -247,30 +312,14 @@ async function processImage() {
     processBtn.textContent = 'Processando...';
 
     try {
-        // Upload da imagem
-        const formData = new FormData();
-        formData.append('file', uploadedFile);
-
-        const uploadResponse = await fetch(`${API_URL}/upload`, {
-            method: 'POST',
-            body: formData
-        });
-
-        if (!uploadResponse.ok) {
-            throw new Error('Erro no upload da imagem');
-        }
-
-        const uploadData = await uploadResponse.json();
-        const fileId = uploadData.fileId;
-
-        // Processar imagem
+        // Processar imagem (arquivo já está no servidor)
         const processResponse = await fetch(`${API_URL}/process`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                fileId: fileId,
+                fileId: uploadedFileId,
                 pixelization: currentSettings.pixelization,
                 quality: currentSettings.quality,
                 noise: currentSettings.noise,
@@ -279,6 +328,8 @@ async function processImage() {
         });
 
         if (!processResponse.ok) {
+            const errorText = await processResponse.text();
+            console.error('Erro no processamento:', errorText);
             throw new Error('Erro ao processar a imagem');
         }
 
@@ -295,6 +346,14 @@ async function processImage() {
 
         downloadBtn.style.display = 'block';
         hideError();
+
+        // Scroll suave até a seção de preview após processar
+        setTimeout(() => {
+            previewSection.scrollIntoView({ 
+                behavior: 'smooth', 
+                block: 'start' 
+            });
+        }, 300);
 
     } catch (error) {
         console.error('Erro:', error);
@@ -325,11 +384,66 @@ function downloadImage() {
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
+    
+    // Mostrar popup de doação após download
+    setTimeout(() => {
+        showDonationPopup();
+    }, 1000);
+}
+
+// Popup de doação
+function showDonationPopup() {
+    Swal.fire({
+        title: 'Apoie o projeto 💙',
+        html: `
+            <p style="font-size: 16px; color: #4a5568; margin-bottom: 20px;">
+                Essa ferramenta é <strong>gratuita</strong> e mantida de forma independente. 
+                Se ela te ajudou, qualquer apoio via PIX já faz diferença.
+            </p>
+            <div style="margin: 20px 0;">
+                <img src="assets/qrcode-pix.png" alt="QR Code PIX" style="max-width: 200px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+            </div>
+            <p style="font-size: 14px; color: #718096; margin-top: 15px;">
+                Obrigado por usar o BaixarQualidadeImagem! ❤️
+            </p>
+        `,
+        confirmButtonText: 'Fechar',
+        confirmButtonColor: '#0B5FFF',
+        showCancelButton: true,
+        cancelButtonText: 'Copiar chave PIX',
+        cancelButtonColor: '#48bb78',
+        width: '450px',
+        padding: '2em',
+        backdrop: true,
+        allowOutsideClick: true
+    }).then((result) => {
+        if (result.dismiss === Swal.DismissReason.cancel) {
+            // Copiar chave PIX (substitua pela sua chave)
+            const chavePix = '00020126580014BR.GOV.BCB.PIX0136166ab3a1-e2d5-412c-aa27-ca1377ca8ddb5204000053039865802BR5918FERNANDO GIGLIOTTI6014RIBEIRAO PRETO622605224NMtygEOqa0nphi3aRgIm66304386A';
+            navigator.clipboard.writeText(chavePix).then(() => {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Chave copiada!',
+                    text: 'A chave PIX foi copiada para a área de transferência.',
+                    timer: 2000,
+                    showConfirmButton: false
+                });
+            }).catch(() => {
+                Swal.fire({
+                    icon: 'info',
+                    title: 'Chave PIX',
+                    text: chavePix,
+                    confirmButtonColor: '#0B5FFF'
+                });
+            });
+        }
+    });
 }
 
 // Reset da aplicação
 function resetApp() {
     uploadedFile = null;
+    uploadedFileId = null;
     processedImageId = null;
     fileInput.value = '';
 
@@ -341,6 +455,12 @@ function resetApp() {
 
     // Reset to default mode
     handleModeChange('media');
+
+    // Scroll de volta para o topo ao resetar
+    window.scrollTo({ 
+        top: 0, 
+        behavior: 'smooth' 
+    });
 }
 
 // Funções auxiliares
