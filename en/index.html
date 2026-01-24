@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Low Quality Image Generator – Make Pixelated Meme Images Online</title>
+    <meta name="description"
+        content="Turn any image into intentionally low quality, pixelated or meme-style images. Free online tool for creating deep fried memes, crusty images, and bad quality pictures. No signup required.">
+    <meta name="keywords"
+        content="low quality image generator, make image low quality, pixelated image generator, bad quality image maker, meme image generator, deep fried meme generator, crusty meme maker, reduce image quality online, pixelate image online, meme quality reducer">
+    <link rel="canonical" href="https://www.baixarqualidadeimagem.com.br/en">
+
+    <!-- Hreflang for SEO International -->
+    <link rel="alternate" hreflang="pt-br" href="https://www.baixarqualidadeimagem.com.br/" />
+    <link rel="alternate" hreflang="en" href="https://www.baixarqualidadeimagem.com.br/en" />
+    <link rel="alternate" hreflang="x-default" href="https://www.baixarqualidadeimagem.com.br/en" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Low Quality Image Generator – Make Pixelated Meme Images Online">
+    <meta property="og:description"
+        content="Free online tool to intentionally degrade image quality. Create pixelated, deep fried memes and low quality images instantly.">
+    <meta property="og:url" content="https://www.baixarqualidadeimagem.com.br/en">
+    <meta property="og:image" content="https://www.baixarqualidadeimagem.com.br/assets/og-image.png">
+    <meta property="og:site_name" content="Low Quality Image Generator">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale:alternate" content="pt_BR" />
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://www.baixarqualidadeimagem.com.br/assets/favicon.png">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <link rel="stylesheet" href="../css/styles.css">
+
+    <!-- JSON-LD Schema -->
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Low Quality Image Generator",
+    "description": "Free online tool to intentionally degrade image quality for memes and internet culture",
+    "url": "https://www.baixarqualidadeimagem.com.br/en",
+    "inLanguage": "en-US",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "Web",
+    "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Low Quality Image Generator",
+        "url": "https://www.baixarqualidadeimagem.com.br/en"
+    }
+    }
+    </script>
+</head>
+
+<body>
+    <header>
+        <nav class="container">
+            <a href="/en" class="logo">
+                <img src="../assets/logo.svg" alt="Low Quality Image Generator" width="200" height="40">
+            </a>
+            <ul class="nav-links">
+                <li><a href="/en">Home</a></li>
+                <li><a href="/en/about.html">About</a></li>
+                <li><a href="/en/privacy.html">Privacy</a></li>
+                <li><a href="/en/terms.html">Terms</a></li>
+                <li><a href="/en/donate.html" style="color: #fc8181; font-weight: 600;">☕ Donate</a></li>
+                <li class="language-switcher-nav">
+                    <a href="/" class="lang-link">🇧🇷 PT</a>
+                    <span class="lang-separator">|</span>
+                    <a href="/en" class="lang-link active">🇺🇸 EN</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <h1>Low Quality Image Generator</h1>
+            <p class="subtitle">Transform your photos into intentionally pixelated, low quality meme-style images in
+                seconds!
+            </p>
+        </section>
+
+        <section class="upload-section">
+            <div class="upload-area" id="uploadArea">
+                <svg class="upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                    <polyline points="17 8 12 3 7 8"></polyline>
+                    <line x1="12" y1="3" x2="12" y2="15"></line>
+                </svg>
+                <p class="upload-text">Drag your image here or click to select</p>
+                <p class="upload-hint">PNG, JPG, JPEG or WEBP (max. 10MB)</p>
+                <input type="file" id="fileInput" accept="image/png,image/jpeg,image/jpg,image/webp" hidden>
+            </div>
+            <div class="error-message" id="errorMessage"></div>
+        </section>
+
+        <section class="preview-section" id="previewSection" style="display: none;">
+            <div class="preview-container">
+                <div class="preview-box">
+                    <h3>Original</h3>
+                    <img id="originalPreview" alt="Original image">
+                    <p class="image-info" id="originalInfo"></p>
+                    <div class="preview-actions">
+                        <button class="btn btn-secondary" id="changeImageBtn">
+                            Change Image
+                        </button>
+                    </div>
+                </div>
+                <div class="preview-box">
+                    <h3>Result</h3>
+                    <div id="processedPreview" class="processed-placeholder">
+                        <p>Waiting for processing...</p>
+                    </div>
+                    <p class="image-info" id="processedInfo"></p>
+                    <div class="preview-actions" id="processedActions" style="display: none;">
+                        <button class="btn btn-primary" id="downloadImageBtn">
+                            Download Image
+                        </button>
+                        <button class="btn btn-secondary" id="copyImageBtn">
+                            Copy Image
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="controls-section" id="controlsSection" style="display: none;">
+            <h2>Processing Settings</h2>
+
+            <!-- Manual Controls (always visible) -->
+            <div class="manual-controls">
+                <h3>Adjust Settings</h3>
+
+                <div class="control-group">
+                    <label>Preset Mode</label>
+                    <div class="mode-buttons">
+                        <button class="mode-btn" data-mode="baixa">Low Quality</button>
+                        <button class="mode-btn active" data-mode="media">Medium Quality</button>
+                        <button class="mode-btn" data-mode="extrema">Extreme (Meme)</button>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label for="pixelSlider">Pixelation: <span id="pixelValue">4</span>x</label>
+                    <input type="range" id="pixelSlider" min="2" max="20" value="4" step="1">
+                </div>
+
+                <div class="control-group">
+                    <label for="qualitySlider">JPEG Compression: <span id="qualityValue">50</span>%</label>
+                    <input type="range" id="qualitySlider" min="10" max="95" value="50" step="5">
+                </div>
+
+                <div class="control-group">
+                    <label for="noiseSlider">Noise: <span id="noiseValue">30</span>%</label>
+                    <input type="range" id="noiseSlider" min="0" max="100" value="30" step="10">
+                </div>
+
+                <div class="control-group">
+                    <label for="blurSlider">Blur: <span id="blurValue">0</span></label>
+                    <input type="range" id="blurSlider" min="0" max="10" value="0" step="1">
+                </div>
+
+                <div class="control-group">
+                    <label for="resolutionSlider">Resolution: <span id="resolutionValue">100</span>%</label>
+                    <input type="range" id="resolutionSlider" min="10" max="100" value="100" step="5">
+                </div>
+
+                <div class="action-buttons">
+                    <button id="processBtn" class="btn btn-primary">Process Again</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="info-section">
+            <h2>How Does It Work?</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Upload</h3>
+                    <p>Upload your image (PNG or JPG up to 10MB)</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Configure</h3>
+                    <p>Choose the degradation level and adjust parameters</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Download</h3>
+                    <p>Process and download your meme image in seconds</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEO Content Section -->
+        <section class="seo-content">
+            <div class="seo-container">
+                <h2>What is a Low Quality Image Generator?</h2>
+                <p>
+                    A <strong>low quality image generator</strong> is an online tool designed to intentionally degrade
+                    image quality for creative and humorous purposes. Unlike traditional image compressors that aim to
+                    reduce file size while maintaining visual quality, our tool does the opposite – it deliberately
+                    makes your images look worse by adding pixelation, compression artifacts, noise, and blur. This
+                    aesthetic has become incredibly popular in internet culture, particularly for creating <strong>deep
+                        fried memes</strong>, crusty images, and ironic visual content.
+                </p>
+
+                <h3>Why Would Anyone Want to Make Images Low Quality?</h3>
+                <p>
+                    The intentional degradation of image quality has become an art form in online communities.
+                    <strong>Low quality memes</strong> and "deep fried" images convey humor, irony, and nostalgia in
+                    ways that high-definition images simply cannot. This aesthetic references early internet culture,
+                    when slow connections and limited bandwidth meant images were often heavily compressed and
+                    pixelated. Today, content creators, meme makers, and social media users deliberately recreate this
+                    look to add comedic effect, emphasize absurdity, or create a vintage internet vibe.
+                </p>
+
+                <h3>How to Make an Image Low Quality Online</h3>
+                <p>
+                    Using our <strong>low quality image maker</strong> is incredibly simple. First, upload your image –
+                    we support PNG, JPG, JPEG, and WEBP formats up to 10MB. Next, choose between automatic mode (which
+                    applies optimal settings instantly) or advanced mode for complete control. In advanced mode, you can
+                    adjust four key parameters: <strong>pixelation</strong> (creates blocky, pixelated effects),
+                    <strong>JPEG compression</strong> (adds compression artifacts and color banding),
+                    <strong>noise</strong> (introduces visual grain and static), and <strong>blur</strong> (softens
+                    details). You can also control the output resolution as a percentage of the original size. Once
+                    you're satisfied with the preview, simply click download to save your intentionally degraded image.
+                </p>
+
+                <h3>Deep Fried Memes and Internet Culture</h3>
+                <p>
+                    The term "deep fried meme" refers to images that have been heavily processed to look extremely low
+                    quality, often featuring oversaturated colors, heavy JPEG compression, excessive contrast, and
+                    multiple layers of visual noise. While our tool focuses on quality degradation through pixelation,
+                    compression, and noise, it's perfect for creating the foundation of deep fried content. This style
+                    became popular on platforms like Reddit, Twitter, and Instagram, where users compete to create the
+                    most absurdly degraded yet still recognizable images. The aesthetic has evolved into a distinct
+                    visual language that signals humor, irony, and internet-savvy culture.
+                </p>
+
+                <h3>Features of Our Low Quality Image Generator</h3>
+                <p>
+                    Our tool offers several unique features that make it the best choice for creating <strong>bad
+                        quality images</strong> online. It's completely free with no registration required, supports
+                    multiple image formats, provides both automatic and manual control modes, processes images quickly
+                    even on mobile devices, and ensures your privacy by automatically deleting uploaded images after 24
+                    hours. You have precise control over pixelation intensity (2x to 20x), JPEG compression quality (10%
+                    to 95%), noise levels (0% to 100%), blur strength (0 to 10), and output resolution (10% to 100% of
+                    original). This level of customization allows you to create anything from subtly degraded images to
+                    completely "nuked" memes.
+                </p>
+
+                <h3>Who Uses Low Quality Image Generators?</h3>
+                <p>
+                    Our tool is used by a diverse range of people: meme creators looking to add authentic low-quality
+                    aesthetics to their content, social media managers creating engaging posts with retro or ironic
+                    vibes, content creators producing thumbnails and visual assets with intentional degradation, digital
+                    artists exploring glitch art and vaporwave aesthetics, and anyone who wants to recreate the
+                    nostalgic look of early 2000s internet imagery. Whether you're making a joke, creating art, or just
+                    having fun, our <strong>pixelated image generator</strong> gives you the tools to achieve the
+                    perfect level of intentional "badness."
+                </p>
+
+                <h3>Common Use Cases</h3>
+                <p>
+                    People use our low quality image maker for various purposes: creating reaction images and memes for
+                    social media, making ironic profile pictures, producing content for meme pages and humor
+                    communities, adding vintage internet aesthetics to modern photos, creating intentionally bad quality
+                    images for comedic effect, generating assets for video thumbnails that need to stand out, and
+                    experimenting with glitch art and digital degradation techniques. The tool is particularly popular
+                    among Gen Z and millennial internet users who appreciate the ironic humor of deliberately poor image
+                    quality.
+                </p>
+            </div>
+        </section>
+
+        <!-- FAQ Section for SEO -->
+        <section class="editorial-section">
+            <h2>Frequently Asked Questions</h2>
+
+            <h3 style="font-size: 18px; color: var(--text); margin-top: 24px; margin-bottom: 12px;">
+                How do I make an image low quality?
+            </h3>
+            <p>
+                Simply upload your image to our tool, choose automatic mode for instant results, or use advanced mode to
+                manually adjust pixelation, compression, noise, and blur levels. Then download your degraded image.
+            </p>
+
+            <h3 style="font-size: 18px; color: var(--text); margin-top: 24px; margin-bottom: 12px;">
+                What is a deep fried meme?
+            </h3>
+            <p>
+                A deep fried meme is an image that has been heavily processed to look extremely low quality, featuring
+                oversaturation, heavy compression artifacts, and excessive visual noise. It's a popular internet humor
+                style.
+            </p>
+
+            <h3 style="font-size: 18px; color: var(--text); margin-top: 24px; margin-bottom: 12px;">
+                Is this tool free to use?
+            </h3>
+            <p>
+                Yes! Our low quality image generator is completely free with no registration required. You can process
+                unlimited images without any cost.
+            </p>
+
+            <h3 style="font-size: 18px; color: var(--text); margin-top: 24px; margin-bottom: 12px;">
+                What image formats are supported?
+            </h3>
+            <p>
+                We support PNG, JPG, JPEG, and WEBP formats. Maximum file size is 10MB. You can output your processed
+                image as either JPEG or PNG.
+            </p>
+
+            <h3 style="font-size: 18px; color: var(--text); margin-top: 24px; margin-bottom: 12px;">
+                Can I control how bad the quality gets?
+            </h3>
+            <p>
+                Absolutely! In advanced mode, you have full control over pixelation (2x-20x), JPEG compression
+                (10%-95%), noise (0%-100%), blur (0-10), and resolution (10%-100%). Create anything from subtle
+                degradation to extreme "nuked" memes.
+            </p>
+        </section>
+
+        <!-- DONATION SECTION -->
+        <section class="donation-section">
+            <div class="container">
+                <div class="donation-content">
+                    <div class="donation-text">
+                        <h2>☕ Support this project</h2>
+                        <p>This tool is completely <strong>free</strong> and maintained independently.</p>
+                        <p>If it helped you create your memes, consider buying me a coffee to keep the project running!
+                        </p>
+                        <a href="https://buymeacoffee.com/nerfandao" target="_blank" rel="noopener noreferrer"
+                            class="btn btn-donation">
+                            ☕ Buy me a coffee
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Low Quality Image Generator. All rights reserved.</p>
+            <ul class="footer-links">
+                <li><a href="/en/about.html">About</a></li>
+                <li><a href="/en/privacy.html">Privacy</a></li>
+                <li><a href="/en/terms.html">Terms of Use</a></li>
+                <li><a href="https://buymeacoffee.com/nerfandao" target="_blank" rel="noopener noreferrer">☕ Support the
+                        Project</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script src="js/app-en.js"></script>
+</body>
+
+</html>

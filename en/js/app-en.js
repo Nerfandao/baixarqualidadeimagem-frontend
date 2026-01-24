@@ -1,6 +1,5 @@
 const API_URL = 'https://baixarqualidadeimagem-backend.onrender.com/api';
 
-// Estado da aplicação
 let uploadedFile = null;
 let uploadedFileId = null;
 let processedImageId = null;
@@ -168,6 +167,7 @@ function handleFile(file) {
         showError('Arquivo parece estar corrompido ou vazio.');
         return;
     }
+
     uploadedFile = file;
     hideError();
 
@@ -244,15 +244,6 @@ async function uploadAndShowPreview(file) {
         alert('Erro ao carregar: Não foi possível fazer upload da imagem. Verifique sua conexão e tente novamente.');
     }
 }
-
-/**
- * Calcula o tamanho alvo para redimensionamento automático.
- * Regras:
- * - Maior lado > 600px: reduzir para ~500px no maior lado
- * - Maior lado entre 450-600px: manter como está
- * - Maior lado < 450px: não aumentar (evitar upscaling)
- * - Sempre preservar aspect ratio
- */
 function getAutoTargetSize(width, height) {
     const maxSide = Math.max(width, height);
 
@@ -392,6 +383,7 @@ function updateAppliedSettings(settings) {
     document.querySelectorAll('.mode-btn').forEach(btn => {
         btn.classList.remove('active');
     });
+
     if (settingsApplied) settingsApplied.style.display = 'block';
 }
 
@@ -439,7 +431,7 @@ async function processImage() {
     }
 
     processBtn.disabled = true;
-    processBtn.textContent = 'Processando...';
+    processBtn.textContent = 'Processing...';
 
     try {
         const requestBody = {
@@ -482,6 +474,7 @@ async function processImage() {
         document.getElementById('processedActions').style.display = 'flex';
 
         hideError();
+
         setTimeout(() => {
             previewSection.scrollIntoView({
                 behavior: 'smooth',
@@ -493,7 +486,7 @@ async function processImage() {
         showError('Erro ao processar a imagem. Tente novamente.');
     } finally {
         processBtn.disabled = false;
-        processBtn.textContent = 'Processar novamente';
+        processBtn.textContent = 'Process Again';
     }
 }
 
@@ -523,20 +516,20 @@ function downloadImage() {
 
 function showDonationPopup() {
     Swal.fire({
-        title: 'Apoie o projeto 💙',
+        title: 'Support this project ☕',
         html: `
             <p style="font-size: 16px; color: #4a5568; margin-bottom: 20px;">
-                Essa ferramenta é <strong>gratuita</strong> e mantida de forma independente. 
-                Se ela te ajudou, considere fazer uma doação para manter o projeto no ar!
+                This tool is completely <strong>free</strong> and maintained independently. 
+                If it helped you create your memes, consider buying me a coffee to keep the project running!
             </p>
             <p style="font-size: 14px; color: #718096; margin-top: 15px;">
-                Obrigado por usar o BaixarQualidadeImagem! ❤️
+                Thank you for using Low Quality Image Generator! ❤️
             </p>
         `,
-        confirmButtonText: 'Fechar',
+        confirmButtonText: 'Close',
         confirmButtonColor: '#0B5FFF',
         showCancelButton: true,
-        cancelButtonText: '💙 Fazer uma doação',
+        cancelButtonText: '☕ Buy me a coffee',
         cancelButtonColor: '#48bb78',
         width: '450px',
         padding: '2em',
@@ -544,13 +537,14 @@ function showDonationPopup() {
         allowOutsideClick: true
     }).then((result) => {
         if (result.dismiss === Swal.DismissReason.cancel) {
-            window.location.href = '/doacao.html';
+            window.open('https://buymeacoffee.com/nerfandao', '_blank');
         }
     });
 }
+
 async function copyImageToClipboard() {
     if (!processedImageId) {
-        showError('Nenhuma imagem processada para copiar.');
+        showError('No processed image to copy.');
         return;
     }
 
@@ -579,6 +573,7 @@ async function copyImageToClipboard() {
             const pngBlob = await new Promise(resolve => {
                 canvas.toBlob(resolve, 'image/png');
             });
+
             await navigator.clipboard.write([
                 new ClipboardItem({
                     'image/png': pngBlob
@@ -594,8 +589,8 @@ async function copyImageToClipboard() {
 
         Swal.fire({
             icon: 'success',
-            title: 'Imagem copiada!',
-            text: 'A imagem foi copiada para a área de transferência. Use Ctrl+V para colar.',
+            title: 'Image copied!',
+            text: 'The image has been copied to clipboard. Use Ctrl+V to paste.',
             timer: 2500,
             showConfirmButton: false
         }).then(() => {
@@ -606,8 +601,8 @@ async function copyImageToClipboard() {
     } catch (error) {
         Swal.fire({
             icon: 'error',
-            title: 'Erro ao copiar',
-            text: 'Não foi possível copiar a imagem. Tente usar o botão de download.',
+            title: 'Copy failed',
+            text: 'Could not copy the image. Try using the download button.',
             confirmButtonColor: '#0B5FFF'
         });
     }
@@ -634,6 +629,7 @@ function resetApp() {
     });
 }
 
+// Funções auxiliares
 function showError(message) {
     errorMessage.textContent = message;
     errorMessage.classList.add('show');
@@ -645,6 +641,7 @@ function hideError() {
 
 function showLoading(message = 'Carregando...') {
     hideLoading();
+
     const overlay = document.createElement('div');
     overlay.id = 'loadingOverlay';
     overlay.style.cssText = `
@@ -680,6 +677,7 @@ function showLoading(message = 'Carregando...') {
         margin: 0 auto 20px;
     `;
 
+    // Texto
     const text = document.createElement('p');
     text.textContent = message;
     text.style.cssText = `
@@ -694,6 +692,7 @@ function showLoading(message = 'Carregando...') {
     overlay.appendChild(content);
     document.body.appendChild(overlay);
 
+    // Adicionar animação de spin se não existir
     if (!document.getElementById('spinAnimation')) {
         const style = document.createElement('style');
         style.id = 'spinAnimation';
@@ -713,3 +712,6 @@ function hideLoading() {
         overlay.remove();
     }
 }
+
+// Log para debug (remover em produção)
+console.log('BaixarQualidadeImagem App Initialized');

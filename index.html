@@ -13,8 +13,8 @@
 
     <!-- Hreflang para SEO Internacional -->
     <link rel="alternate" hreflang="pt-br" href="https://www.baixarqualidadeimagem.com.br/" />
-    <link rel="alternate" hreflang="en" href="https://www.baixarqualidadeimagem.com.br/" />
-    <link rel="alternate" hreflang="x-default" href="https://www.baixarqualidadeimagem.com.br/" />
+    <link rel="alternate" hreflang="en" href="https://www.baixarqualidadeimagem.com.br/en" />
+    <link rel="alternate" hreflang="x-default" href="https://www.baixarqualidadeimagem.com.br/en" />
 
     <!-- Open Graph -->
     <meta property="og:title" content="Baixar Qualidade da Imagem – Transforme Fotos em Imagens de Meme">
@@ -87,6 +87,12 @@
                 <li><a href="sobre.html">Sobre</a></li>
                 <li><a href="privacidade.html">Privacidade</a></li>
                 <li><a href="termos.html">Termos</a></li>
+                <li><a href="doacao.html" style="color: #fc8181; font-weight: 600;">💙 Doar</a></li>
+                <li class="language-switcher-nav">
+                    <a href="/" class="lang-link active">🇧🇷 PT</a>
+                    <span class="lang-separator">|</span>
+                    <a href="/en" class="lang-link">🇺🇸 EN</a>
+                </li>
             </ul>
         </nav>
     </header>
@@ -118,6 +124,11 @@
                     <h3>Original</h3>
                     <img id="originalPreview" alt="Imagem original">
                     <p class="image-info" id="originalInfo"></p>
+                    <div class="preview-actions">
+                        <button class="btn btn-secondary" id="changeImageBtn">
+                            Trocar Imagem
+                        </button>
+                    </div>
                 </div>
                 <div class="preview-box">
                     <h3>Resultado</h3>
@@ -125,6 +136,14 @@
                         <p>Aguardando processamento...</p>
                     </div>
                     <p class="image-info" id="processedInfo"></p>
+                    <div class="preview-actions" id="processedActions" style="display: none;">
+                        <button class="btn btn-primary" id="downloadImageBtn">
+                            Baixar Imagem
+                        </button>
+                        <button class="btn btn-secondary" id="copyImageBtn">
+                            Copiar Imagem
+                        </button>
+                    </div>
                 </div>
             </div>
         </section>
@@ -132,42 +151,47 @@
         <section class="controls-section" id="controlsSection" style="display: none;">
             <h2>Configurações de Processamento</h2>
 
-            <div class="control-group">
-                <label>Modo Pré-definido</label>
-                <div class="mode-buttons">
-                    <button class="mode-btn" data-mode="baixa">Baixa Qualidade</button>
-                    <button class="mode-btn active" data-mode="media">Média Qualidade</button>
-                    <button class="mode-btn" data-mode="extrema">Extrema (Meme)</button>
+            <!-- Manual Controls (always visible) -->
+            <div class="manual-controls">
+                <h3>Ajustar Configurações</h3>
+
+                <div class="control-group">
+                    <label>Modo Pré-definido</label>
+                    <div class="mode-buttons">
+                        <button class="mode-btn" data-mode="baixa">Baixa Qualidade</button>
+                        <button class="mode-btn active" data-mode="media">Média Qualidade</button>
+                        <button class="mode-btn" data-mode="extrema">Extrema (Meme)</button>
+                    </div>
                 </div>
-            </div>
 
-            <div class="control-group">
-                <label for="pixelSlider">Pixelização: <span id="pixelValue">4</span>x</label>
-                <input type="range" id="pixelSlider" min="2" max="20" value="4" step="1">
-            </div>
-
-            <div class="control-group">
-                <label for="qualitySlider">Compressão JPEG: <span id="qualityValue">50</span>%</label>
-                <input type="range" id="qualitySlider" min="10" max="95" value="50" step="5">
-            </div>
-
-            <div class="control-group">
-                <label for="noiseSlider">Ruído: <span id="noiseValue">30</span>%</label>
-                <input type="range" id="noiseSlider" min="0" max="100" value="30" step="10">
-            </div>
-
-            <div class="control-group">
-                <label>Formato de Saída</label>
-                <div class="format-buttons">
-                    <button class="format-btn active" data-format="jpeg">JPEG</button>
-                    <button class="format-btn" data-format="png">PNG</button>
+                <div class="control-group">
+                    <label for="pixelSlider">Pixelização: <span id="pixelValue">4</span>x</label>
+                    <input type="range" id="pixelSlider" min="2" max="20" value="4" step="1">
                 </div>
-            </div>
 
-            <div class="action-buttons">
-                <button id="processBtn" class="btn btn-primary">Processar Imagem</button>
-                <button id="downloadBtn" class="btn btn-secondary" style="display: none;">Baixar Imagem</button>
-                <button id="resetBtn" class="btn btn-tertiary">Nova Imagem</button>
+                <div class="control-group">
+                    <label for="qualitySlider">Compressão JPEG: <span id="qualityValue">50</span>%</label>
+                    <input type="range" id="qualitySlider" min="10" max="95" value="50" step="5">
+                </div>
+
+                <div class="control-group">
+                    <label for="noiseSlider">Ruído: <span id="noiseValue">30</span>%</label>
+                    <input type="range" id="noiseSlider" min="0" max="100" value="30" step="10">
+                </div>
+
+                <div class="control-group">
+                    <label for="blurSlider">Desfoque (Blur): <span id="blurValue">0</span></label>
+                    <input type="range" id="blurSlider" min="0" max="10" value="0" step="1">
+                </div>
+
+                <div class="control-group">
+                    <label for="resolutionSlider">Resolução: <span id="resolutionValue">100</span>%</label>
+                    <input type="range" id="resolutionSlider" min="10" max="100" value="100" step="5">
+                </div>
+
+                <div class="action-buttons">
+                    <button id="processBtn" class="btn btn-primary">Processar Novamente</button>
+                </div>
             </div>
         </section>
 
@@ -319,14 +343,16 @@
                     <div class="donation-text">
                         <h2>❤️ Apoie este projeto</h2>
                         <p>Esta ferramenta é totalmente <strong>gratuita</strong> e mantida de forma independente.</p>
-                        <p>Se ela te ajudou a criar seus memes, considere fazer uma doação via PIX para manter o projeto no ar!</p>
+                        <p>Se ela te ajudou a criar seus memes, considere fazer uma doação via PIX para manter o projeto
+                            no ar!</p>
                         <button id="showDonationBtn" class="btn btn-donation">
                             💙 Fazer uma doação
                         </button>
                     </div>
                     <div class="donation-qrcode">
-                        <img src="assets/qrcode-pix.png" alt="QR Code PIX para doação" class="qrcode-image">
-                        <p class="qrcode-caption">Escaneie o QR Code ou clique no botão</p>
+                        <img src="assets/qrcode-pix.png" alt="QR Code PIX para doação" class="qrcode-image"
+                            id="qrcodeImage" style="cursor: pointer;" title="Clique para copiar a chave PIX">
+                        <p class="qrcode-caption">Escaneie o QR Code ou clique nele para copiar</p>
                     </div>
                 </div>
             </div>
@@ -336,7 +362,7 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2025 BaixarQualidadeImagem. Todos os direitos reservados.</p>
+            <p>&copy; 2026 BaixarQualidadeImagem. Todos os direitos reservados.</p>
             <ul class="footer-links">
                 <li><a href="sobre.html">Sobre</a></li>
                 <li><a href="privacidade.html">Privacidade</a></li>
@@ -347,8 +373,31 @@
     </footer>
 
     <script src="js/app.js"></script>
-    
+
     <script>
+        // Chave PIX
+        const chavePix = '00020126580014BR.GOV.BCB.PIX0136166ab3a1-e2d5-412c-aa27-ca1377ca8ddb5204000053039865802BR5918FERNANDO GIGLIOTTI6014RIBEIRAO PRETO622605224NMtygEOqa0nphi3aRgIm66304386A';
+
+        // Event listener para copiar PIX ao clicar no QR Code
+        document.getElementById('qrcodeImage')?.addEventListener('click', function () {
+            navigator.clipboard.writeText(chavePix).then(() => {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Chave PIX copiada!',
+                    text: 'A chave PIX foi copiada para a área de transferência.',
+                    timer: 2500,
+                    showConfirmButton: false
+                });
+            }).catch(() => {
+                Swal.fire({
+                    icon: 'info',
+                    title: 'Chave PIX',
+                    html: `<p style="word-break: break-all; font-size: 12px;">${chavePix}</p>`,
+                    confirmButtonColor: '#0B5FFF'
+                });
+            });
+        });
+
         // Event listeners para abrir popup de doação
         document.getElementById('showDonationBtn')?.addEventListener('click', showDonationPopup);
         document.getElementById('footerDonationLink')?.addEventListener('click', (e) => {

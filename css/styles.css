@@ -76,6 +76,34 @@ nav {
     color: var(--primary);
 }
 
+/* Language Switcher */
+.language-switcher-nav {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.lang-link {
+    font-size: 14px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.lang-link.active {
+    background-color: var(--primary);
+    color: var(--white) !important;
+}
+
+.lang-link:hover:not(.active) {
+    background-color: var(--muted);
+}
+
+.lang-separator {
+    color: #8B95A5;
+    font-size: 14px;
+}
+
 /* Hero Section */
 .hero {
     text-align: center;
@@ -202,6 +230,20 @@ h1 {
     margin-top: 12px;
     font-size: 13px;
     color: #8B95A5;
+}
+
+.preview-actions {
+    margin-top: 16px;
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+}
+
+.preview-actions .btn {
+    flex: 1;
+    min-width: auto;
+    padding: 10px 16px;
+    font-size: 14px;
 }
 
 /* Controls Section */
@@ -349,6 +391,62 @@ input[type="range"]::-moz-range-thumb {
     cursor: not-allowed;
 }
 
+/* Settings Applied Section */
+.settings-applied {
+    background-color: #F0F6FF;
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 32px;
+    border-left: 4px solid var(--primary);
+}
+
+.settings-applied h3 {
+    font-size: 18px;
+    color: var(--text);
+    margin-bottom: 16px;
+    font-weight: 600;
+}
+
+.settings-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+}
+
+.setting-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;
+    background-color: var(--white);
+    border-radius: 6px;
+}
+
+.setting-label {
+    font-size: 14px;
+    color: #5A6B7F;
+    font-weight: 500;
+}
+
+.setting-value {
+    font-size: 14px;
+    color: var(--primary);
+    font-weight: 600;
+}
+
+/* Manual Controls Section */
+.manual-controls {
+    margin-top: 24px;
+}
+
+.manual-controls h3 {
+    font-size: 18px;
+    color: var(--text);
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+
 /* Info Section */
 .info-section {
     margin: 60px auto;
@@ -472,7 +570,7 @@ input[type="range"]::-moz-range-thumb {
     line-height: 1.7;
     color: #5A6B7F;
     margin-bottom: 16px;
-    text-align: center;
+    text-align: left;
 }
 
 .editorial-section ul {
@@ -703,6 +801,36 @@ footer .container {
         min-width: 100%;
     }
 
+    /* Tabs responsivo */
+    .tabs-header {
+        gap: 8px;
+    }
+
+    .tab-btn {
+        padding: 12px 16px;
+        font-size: 14px;
+    }
+
+    .auto-mode-content {
+        padding: 16px;
+    }
+
+    .auto-mode-content h3 {
+        font-size: 20px;
+    }
+
+    .auto-description {
+        font-size: 15px;
+    }
+
+    .auto-info {
+        padding: 20px 16px;
+    }
+
+    .auto-info p {
+        font-size: 14px;
+    }
+
     .footer-links {
         flex-wrap: wrap;
         gap: 12px;
@@ -749,27 +877,27 @@ footer .container {
     .donation-section {
         padding: 40px 20px;
     }
-    
+
     .donation-content {
         flex-direction: column;
         text-align: center;
         gap: 30px;
     }
-    
+
     .donation-text h2 {
         font-size: 26px;
     }
-    
+
     .donation-text p {
         font-size: 16px;
         text-align: center;
     }
-    
+
     .qrcode-image {
         width: 180px;
         height: 180px;
     }
-    
+
     .btn-donation {
         width: 100%;
         max-width: 300px;

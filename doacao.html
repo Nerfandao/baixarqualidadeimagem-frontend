@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Apoie o Projeto - BaixarQualidadeImagem</title>
+    <meta name="description"
+        content="Apoie o BaixarQualidadeImagem com uma doação via PIX. Ajude a manter esta ferramenta gratuita no ar!">
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+
+<body>
+    <header>
+        <nav class="container">
+            <a href="/" class="logo">
+                <img src="assets/logo.svg" alt="BaixarQualidadeImagem" width="200" height="40">
+            </a>
+            <ul class="nav-links">
+                <li><a href="/">Início</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="privacidade.html">Privacidade</a></li>
+                <li><a href="termos.html">Termos</a></li>
+                <li class="language-switcher-nav">
+                    <a href="/doacao.html" class="lang-link active">🇧🇷 PT</a>
+                    <span class="lang-separator">|</span>
+                    <a href="/en/donate.html" class="lang-link">🇺🇸 EN</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <article
+            style="max-width: 800px; margin: 60px auto; background: white; padding: 40px; border-radius: 12px; box-shadow: 0 2px 12px rgba(11, 95, 255, 0.1);">
+            <h1 style="text-align: center; color: var(--primary); margin-bottom: 10px;">❤️ Apoie o Projeto</h1>
+            <p style="text-align: center; font-size: 18px; color: var(--text-light); margin-bottom: 40px;">
+                Ajude a manter o BaixarQualidadeImagem gratuito e sem anúncios!
+            </p>
+
+            <div
+                style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 30px; border-radius: 12px; color: white; margin-bottom: 30px; text-align: center;">
+                <h2 style="color: white; margin-top: 0;">💙 Por que doar?</h2>
+                <p style="font-size: 16px; line-height: 1.6;">
+                    Esta ferramenta é <strong>100% gratuita</strong> e mantida de forma independente.
+                    Não temos anúncios, não vendemos seus dados e não cobramos nada pelo uso.
+                    Suas doações ajudam a cobrir os custos de servidor e desenvolvimento.
+                </p>
+            </div>
+
+            <h2 style="text-align: center; margin-top: 40px;">Faça sua doação via PIX</h2>
+
+            <div style="display: flex; flex-direction: column; align-items: center; gap: 20px; margin: 30px 0;">
+                <img src="assets/qrcode-pix.png" alt="QR Code PIX para doação"
+                    style="max-width: 280px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+
+                <p style="text-align: center; color: var(--text-light); margin: 10px 0;">
+                    Escaneie o QR Code acima com o app do seu banco
+                </p>
+
+                <button id="copyPixBtn" class="btn btn-primary" style="font-size: 16px; padding: 12px 30px;">
+                    📋 Copiar Chave PIX
+                </button>
+            </div>
+
+            <div
+                style="background: #f7fafc; padding: 25px; border-radius: 8px; border-left: 4px solid var(--primary); margin: 30px 0;">
+                <h3 style="margin-top: 0; color: var(--primary);">🎯 Como sua doação ajuda:</h3>
+                <ul style="line-height: 1.8;">
+                    <li>💻 Manutenção dos servidores e infraestrutura</li>
+                    <li>🚀 Desenvolvimento de novas funcionalidades</li>
+                    <li>🔒 Garantia de privacidade e segurança dos dados</li>
+                    <li>⚡ Melhoria contínua da velocidade e performance</li>
+                    <li>🆓 Manter o serviço gratuito para todos</li>
+                </ul>
+            </div>
+
+            <div
+                style="background: #fff5f5; padding: 20px; border-radius: 8px; border-left: 4px solid #fc8181; margin: 30px 0;">
+                <p style="margin: 0; color: #742a2a;">
+                    <strong>⚠️ Importante:</strong> Todas as doações são voluntárias e não obrigatórias.
+                    Você pode continuar usando a ferramenta gratuitamente, independente de fazer ou não uma doação.
+                </p>
+            </div>
+
+            <h2 style="text-align: center; margin-top: 50px;">Outras formas de apoiar</h2>
+
+            <div
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin: 30px 0;">
+                <div
+                    style="background: white; padding: 20px; border-radius: 8px; border: 2px solid #e2e8f0; text-align: center;">
+                    <div style="font-size: 32px; margin-bottom: 10px;">📢</div>
+                    <h3 style="font-size: 16px; margin: 10px 0;">Compartilhe</h3>
+                    <p style="font-size: 14px; color: var(--text-light); margin: 0;">
+                        Divulgue para amigos e redes sociais
+                    </p>
+                </div>
+
+                <div
+                    style="background: white; padding: 20px; border-radius: 8px; border: 2px solid #e2e8f0; text-align: center;">
+                    <div style="font-size: 32px; margin-bottom: 10px;">⭐</div>
+                    <h3 style="font-size: 16px; margin: 10px 0;">Avalie</h3>
+                    <p style="font-size: 14px; color: var(--text-light); margin: 0;">
+                        Deixe seu feedback e sugestões
+                    </p>
+                </div>
+
+                <div
+                    style="background: white; padding: 20px; border-radius: 8px; border: 2px solid #e2e8f0; text-align: center;">
+                    <div style="font-size: 32px; margin-bottom: 10px;">💡</div>
+                    <h3 style="font-size: 16px; margin: 10px 0;">Contribua</h3>
+                    <p style="font-size: 14px; color: var(--text-light); margin: 0;">
+                        Sugira melhorias e novas funcionalidades
+                    </p>
+                </div>
+            </div>
+
+            <div
+                style="margin-top: 50px; text-align: center; padding: 30px; background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); border-radius: 12px; color: white;">
+                <h2 style="color: white; margin-top: 0;">🙏 Muito obrigado!</h2>
+                <p style="font-size: 16px; line-height: 1.6; margin-bottom: 0;">
+                    Cada doação, por menor que seja, faz toda a diferença para manter este projeto vivo.
+                    Agradecemos de coração por considerar apoiar o BaixarQualidadeImagem!
+                </p>
+            </div>
+
+            <div style="margin-top: 40px; text-align: center;">
+                <a href="/" class="btn btn-primary">Voltar para o início</a>
+            </div>
+        </article>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 BaixarQualidadeImagem. Todos os direitos reservados.</p>
+            <ul class="footer-links">
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="privacidade.html">Privacidade</a></li>
+                <li><a href="termos.html">Termos de Uso</a></li>
+                <li><a href="doacao.html">💙 Apoiar o Projeto</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script>
+        // Copiar chave PIX
+        document.getElementById('copyPixBtn').addEventListener('click', function () {
+            const chavePix = '00020126580014BR.GOV.BCB.PIX0136166ab3a1-e2d5-412c-aa27-ca1377ca8ddb5204000053039865802BR5918FERNANDO GIGLIOTTI6014RIBEIRAO PRETO622605224NMtygEOqa0nphi3aRgIm66304386A';
+
+            navigator.clipboard.writeText(chavePix).then(() => {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Chave PIX copiada!',
+                    text: 'A chave PIX foi copiada para a área de transferência.',
+                    timer: 2500,
+                    showConfirmButton: false
+                });
+            }).catch(() => {
+                Swal.fire({
+                    icon: 'info',
+                    title: 'Chave PIX',
+                    html: `<p style="word-break: break-all; font-size: 12px;">${chavePix}</p>`,
+                    confirmButtonColor: '#0B5FFF'
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
