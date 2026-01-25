@@ -23,36 +23,43 @@ const AUTO_PARAMS = {
     format: 'jpeg'
 };
 
-const uploadArea = document.getElementById('uploadArea');
-const uploadSection = document.querySelector('.upload-section');
-const fileInput = document.getElementById('fileInput');
-const errorMessage = document.getElementById('errorMessage');
-const previewSection = document.getElementById('previewSection');
-const controlsSection = document.getElementById('controlsSection');
-const originalPreview = document.getElementById('originalPreview');
-const processedPreview = document.getElementById('processedPreview');
-const originalInfo = document.getElementById('originalInfo');
-const processedInfo = document.getElementById('processedInfo');
-const processBtn = document.getElementById('processBtn');
-
-const pixelSlider = document.getElementById('pixelSlider');
-const qualitySlider = document.getElementById('qualitySlider');
-const noiseSlider = document.getElementById('noiseSlider');
-const blurSlider = document.getElementById('blurSlider');
-const resolutionSlider = document.getElementById('resolutionSlider');
-const pixelValue = document.getElementById('pixelValue');
-const qualityValue = document.getElementById('qualityValue');
-const noiseValue = document.getElementById('noiseValue');
-const blurValue = document.getElementById('blurValue');
-const resolutionValue = document.getElementById('resolutionValue');
-
 const presetModes = {
     baixa: { pixelization: 2, quality: 75, noise: 10, blur: 0 },
     media: { pixelization: 4, quality: 50, noise: 30, blur: 2 },
     extrema: { pixelization: 12, quality: 20, noise: 70, blur: 5 }
 };
 
+// DOM elements - will be initialized after DOM is ready
+let uploadArea, uploadSection, fileInput, errorMessage, previewSection, controlsSection;
+let originalPreview, processedPreview, originalInfo, processedInfo, processBtn;
+let pixelSlider, qualitySlider, noiseSlider, blurSlider, resolutionSlider;
+let pixelValue, qualityValue, noiseValue, blurValue, resolutionValue;
+
 document.addEventListener('DOMContentLoaded', () => {
+    // Initialize DOM elements
+    uploadArea = document.getElementById('uploadArea');
+    uploadSection = document.querySelector('.upload-section');
+    fileInput = document.getElementById('fileInput');
+    errorMessage = document.getElementById('errorMessage');
+    previewSection = document.getElementById('previewSection');
+    controlsSection = document.getElementById('controlsSection');
+    originalPreview = document.getElementById('originalPreview');
+    processedPreview = document.getElementById('processedPreview');
+    originalInfo = document.getElementById('originalInfo');
+    processedInfo = document.getElementById('processedInfo');
+    processBtn = document.getElementById('processBtn');
+
+    pixelSlider = document.getElementById('pixelSlider');
+    qualitySlider = document.getElementById('qualitySlider');
+    noiseSlider = document.getElementById('noiseSlider');
+    blurSlider = document.getElementById('blurSlider');
+    resolutionSlider = document.getElementById('resolutionSlider');
+    pixelValue = document.getElementById('pixelValue');
+    qualityValue = document.getElementById('qualityValue');
+    noiseValue = document.getElementById('noiseValue');
+    blurValue = document.getElementById('blurValue');
+    resolutionValue = document.getElementById('resolutionValue');
+
     setupEventListeners();
 });
 
@@ -357,10 +364,13 @@ async function processImageAuto() {
         hideLoading();
 
         setTimeout(() => {
-            previewSection.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
+            const resultBox = processedPreview.closest('.preview-box');
+            if (resultBox) {
+                resultBox.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'center'
+                });
+            }
         }, 300);
 
     } catch (error) {
@@ -503,11 +513,16 @@ async function processImage() {
 
         hideError();
 
+        // Scroll to show the processed result
         setTimeout(() => {
-            previewSection.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
+            // Scroll to the result preview box (second preview-box)
+            const resultBox = processedPreview.closest('.preview-box');
+            if (resultBox) {
+                resultBox.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'center'
+                });
+            }
         }, 300);
 
     } catch (error) {

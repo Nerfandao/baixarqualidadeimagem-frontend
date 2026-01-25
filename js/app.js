@@ -366,10 +366,13 @@ async function processImageAuto() {
         hideLoading();
 
         setTimeout(() => {
-            previewSection.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
+            const resultBox = processedPreview.closest('.preview-box');
+            if (resultBox) {
+                resultBox.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'center'
+                });
+            }
         }, 300);
 
     } catch (error) {
@@ -510,11 +513,17 @@ async function processImage() {
         document.getElementById('processedActions').style.display = 'flex';
 
         hideError();
+
+        // Scroll to show the processed result
         setTimeout(() => {
-            previewSection.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
+            // Scroll to the result preview box (second preview-box)
+            const resultBox = processedPreview.closest('.preview-box');
+            if (resultBox) {
+                resultBox.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'center'
+                });
+            }
         }, 300);
 
     } catch (error) {
