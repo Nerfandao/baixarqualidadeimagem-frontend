@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Contact - Low Quality Image Generator</title>
+    <meta name="description" content="Get in touch with Low Quality Image Generator">
+    <link rel="icon" type="image/png" href="../assets/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
+
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+
+<body>
+    <header>
+        <nav class="container">
+            <a href="/en" class="logo">
+                <img src="../assets/logo.svg" alt="Low Quality Image Generator" width="200" height="40">
+            </a>
+            <button class="hamburger" id="hamburger" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="/en">Home</a></li>
+                <li><a href="/en/about.html">About</a></li>
+                <li><a href="/en/privacy.html">Privacy</a></li>
+                <li><a href="/en/terms.html">Terms</a></li>
+                <li><a href="/en/donate.html" style="color: #fc8181; font-weight: 600;">☕ Donate</a></li>
+                <li class="language-switcher-nav">
+                    <a href="/contato.html" class="lang-link">🇧🇷 PT</a>
+                    <span class="lang-separator">|</span>
+                    <a href="/en/contact.html" class="lang-link active">🇺🇸 EN</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <article
+            style="max-width: 800px; margin: 60px auto; background: white; padding: 40px; border-radius: 12px; box-shadow: 0 2px 12px rgba(11, 95, 255, 0.1);">
+            <h1>Contact Us</h1>
+
+            <p>Have questions, suggestions, or feedback about Low Quality Image Generator? We'd love to hear from you!
+            </p>
+
+            <h2>Get in Touch</h2>
+            <p>You can contact us via email:</p>
+            <p style="text-align: center; font-size: 20px; margin: 24px 0;">
+                <strong><a href="mailto:baixarqualidadeimagem@outlook.com"
+                        style="color: var(--primary); text-decoration: none;">baixarqualidadeimagem@outlook.com</a></strong>
+            </p>
+
+            <h2>Contact Form</h2>
+            <form id="contactForm" action="https://formspree.io/f/xzdrwlyo" method="POST" style="margin-top: 24px;">
+                <div class="control-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required
+                        style="width: 100%; padding: 12px; border: 2px solid var(--muted); border-radius: 8px; font-family: inherit; font-size: 16px;">
+                </div>
+
+                <div class="control-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required
+                        style="width: 100%; padding: 12px; border: 2px solid var(--muted); border-radius: 8px; font-family: inherit; font-size: 16px;">
+                </div>
+
+                <div class="control-group">
+                    <label for="subject">Subject:</label>
+                    <input type="text" id="subject" name="subject" required
+                        style="width: 100%; padding: 12px; border: 2px solid var(--muted); border-radius: 8px; font-family: inherit; font-size: 16px;">
+                </div>
+
+                <div class="control-group">
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="6" required
+                        style="width: 100%; padding: 12px; border: 2px solid var(--muted); border-radius: 8px; font-family: inherit; font-size: 16px; resize: vertical;"></textarea>
+                </div>
+
+                <div style="margin-top: 24px;">
+                    <button type="submit" class="btn btn-primary" id="submitBtn">Send Message</button>
+                </div>
+            </form>
+
+            <div style="margin-top: 40px; padding-top: 40px; border-top: 1px solid var(--muted);">
+                <h2>Additional Information</h2>
+                <p>We typically respond within 48 business hours. For privacy-related questions, please see our <a
+                        href="privacy.html" style="color: var(--primary);">Privacy Policy</a>.</p>
+            </div>
+
+            <div style="margin-top: 40px;">
+                <a href="/en" class="btn btn-primary">Back to Home</a>
+            </div>
+        </article>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Low Quality Image Generator. All rights reserved.</p>
+            <ul class="footer-links">
+                <li><a href="/en/about.html">About</a></li>
+                <li><a href="/en/privacy.html">Privacy</a></li>
+                <li><a href="/en/terms.html">Terms of Use</a></li>
+                <li><a href="/en/contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+
+        if (hamburger && navLinks) {
+            hamburger.addEventListener('click', (e) => {
+                e.stopPropagation();
+                hamburger.classList.toggle('active');
+                navLinks.classList.toggle('active');
+            });
+
+            navLinks.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    hamburger.classList.remove('active');
+                    navLinks.classList.remove('active');
+                });
+            });
+
+            document.addEventListener('click', (e) => {
+                if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
+                    hamburger.classList.remove('active');
+                    navLinks.classList.remove('active');
+                }
+            });
+        }
+
+        // Form submission handling
+        const contactForm = document.getElementById('contactForm');
+        const submitBtn = document.getElementById('submitBtn');
+
+        if (contactForm) {
+            contactForm.addEventListener('submit', async function (e) {
+                e.preventDefault();
+
+                // Disable button and show loading state
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Sending...';
+
+                try {
+                    const formData = new FormData(contactForm);
+                    const response = await fetch(contactForm.action, {
+                        method: 'POST',
+                        body: formData,
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    });
+
+                    if (response.ok) {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Message sent!',
+                            text: 'Thank you for contacting us. We will respond soon!',
+                            confirmButtonColor: '#0B5FFF'
+                        });
+                        contactForm.reset();
+                    } else {
+                        throw new Error('Error sending');
+                    }
+                } catch (error) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error sending',
+                        text: 'An error occurred. Please try again or send an email directly.',
+                        confirmButtonColor: '#0B5FFF'
+                    });
+                } finally {
+                    // Re-enable button
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Send Message';
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>

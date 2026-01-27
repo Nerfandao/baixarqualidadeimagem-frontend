@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Contato - BaixarQualidadeImagem</title>
+    <meta name="description" content="Entre em contato com o BaixarQualidadeImagem">
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- EmailJS -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <nav class="container">
+            <a href="/" class="logo">
+                <img src="assets/logo.svg" alt="BaixarQualidadeImagem" width="200" height="40">
+            </a>
+            <button class="hamburger" id="hamburger" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="/">Início</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="privacidade.html">Privacidade</a></li>
+                <li><a href="termos.html">Termos</a></li>
+                <li><a href="doacao.html" style="color: #fc8181; font-weight: 600;">💙 Doar</a></li>
+                <li class="language-switcher-nav">
+                    <a href="/contato.html" class="lang-link active">🇧🇷 PT</a>
+                    <span class="lang-separator">|</span>
+                    <a href="/en/contact.html" class="lang-link">🇺🇸 EN</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <article
+            style="max-width: 800px; margin: 60px auto; background: white; padding: 40px; border-radius: 12px; box-shadow: 0 2px 12px rgba(11, 95, 255, 0.1);">
+            <h1>Contato</h1>
+
+            <p>Tem alguma dúvida, sugestão ou feedback sobre o BaixarQualidadeImagem? Adoraríamos ouvir você!</p>
+
+            <h2>Entre em Contato</h2>
+            <p>Você pode nos contatar através do e-mail:</p>
+            <p style="text-align: center; font-size: 20px; margin: 24px 0;">
+                <strong><a href="mailto:baixarqualidadeimagem@outlook.com"
+                        style="color: var(--primary); text-decoration: none;">baixarqualidadeimagem@outlook.com</a></strong>
+            </p>
+
+            <h2>Formulário de Contato</h2>
+            <form id="contactForm" action="https://formspree.io/f/xzdrwlyo" method="POST" style="margin-top: 24px;">
+                <div class="control-group">
+                    <label for="name">Nome:</label>
+                    <input type="text" id="name" name="name" required
+                        style="width: 100%; padding: 12px; border: 2px solid var(--muted); border-radius: 8px; font-family: inherit; font-size: 16px;">
+                </div>
+
+                <div class="control-group">
+                    <label for="email">E-mail:</label>
+                    <input type="email" id="email" name="email" required
+                        style="width: 100%; padding: 12px; border: 2px solid var(--muted); border-radius: 8px; font-family: inherit; font-size: 16px;">
+                </div>
+
+                <div class="control-group">
+                    <label for="subject">Assunto:</label>
+                    <input type="text" id="subject" name="subject" required
+                        style="width: 100%; padding: 12px; border: 2px solid var(--muted); border-radius: 8px; font-family: inherit; font-size: 16px;">
+                </div>
+
+                <div class="control-group">
+                    <label for="message">Mensagem:</label>
+                    <textarea id="message" name="message" rows="6" required
+                        style="width: 100%; padding: 12px; border: 2px solid var(--muted); border-radius: 8px; font-family: inherit; font-size: 16px; resize: vertical;"></textarea>
+                </div>
+
+                <div style="margin-top: 24px;">
+                    <button type="submit" class="btn btn-primary" id="submitBtn">Enviar Mensagem</button>
+                </div>
+            </form>
+
+            <div style="margin-top: 40px; padding-top: 40px; border-top: 1px solid var(--muted);">
+                <h2>Outras Informações</h2>
+                <p>Respondemos normalmente em até 48 horas úteis. Para questões relacionadas à privacidade, consulte
+                    nossa <a href="privacidade.html" style="color: var(--primary);">Política de Privacidade</a>.</p>
+            </div>
+
+            <div style="margin-top: 40px;">
+                <a href="/" class="btn btn-primary">Voltar para o início</a>
+            </div>
+        </article>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 BaixarQualidadeImagem. Todos os direitos reservados.</p>
+            <ul class="footer-links">
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="privacidade.html">Privacidade</a></li>
+                <li><a href="termos.html">Termos de Uso</a></li>
+                <li><a href="contato.html">Contato</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+
+        if (hamburger && navLinks) {
+            hamburger.addEventListener('click', (e) => {
+                e.stopPropagation();
+                hamburger.classList.toggle('active');
+                navLinks.classList.toggle('active');
+            });
+
+            navLinks.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    hamburger.classList.remove('active');
+                    navLinks.classList.remove('active');
+                });
+            });
+
+            document.addEventListener('click', (e) => {
+                if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
+                    hamburger.classList.remove('active');
+                    navLinks.classList.remove('active');
+                }
+            });
+        }
+
+        // Form submission handling
+        const contactForm = document.getElementById('contactForm');
+        const submitBtn = document.getElementById('submitBtn');
+
+        if (contactForm) {
+            contactForm.addEventListener('submit', async function (e) {
+                e.preventDefault();
+
+                // Disable button and show loading state
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Enviando...';
+
+                try {
+                    const formData = new FormData(contactForm);
+                    const response = await fetch(contactForm.action, {
+                        method: 'POST',
+                        body: formData,
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    });
+
+                    if (response.ok) {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Mensagem enviada!',
+                            text: 'Obrigado pelo contato. Responderemos em breve!',
+                            confirmButtonColor: '#0B5FFF'
+                        });
+                        contactForm.reset();
+                    } else {
+                        throw new Error('Erro ao enviar');
+                    }
+                } catch (error) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Erro ao enviar',
+                        text: 'Ocorreu um erro. Por favor, tente novamente ou envie um email diretamente.',
+                        confirmButtonColor: '#0B5FFF'
+                    });
+                } finally {
+                    // Re-enable button
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Enviar Mensagem';
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>

@@ -83,6 +83,18 @@
                 automaticamente todas as imagens processadas. Você pode usar nossa ferramenta com total tranquilidade.
             </p>
 
+            <h2>Como a Pixelização Funciona Tecnicamente</h2>
+            <p>A pixelização é um processo de redução de resolução que agrupa pixels adjacentes em blocos maiores.
+                Tecnicamente, o algoritmo divide a imagem em uma grade de blocos (por exemplo, 4x4 pixels) e calcula
+                a cor média de todos os pixels dentro de cada bloco. Esse valor médio é então aplicado uniformemente
+                a todos os pixels do bloco, criando o efeito característico de "quadrados" ou "blocos" visíveis.</p>
+
+            <p>Quanto maior o fator de pixelização (2x, 4x, 8x, etc.), maiores são os blocos e mais pronunciado
+                fica o efeito. Este processo é irreversível - uma vez que a informação original dos pixels é
+                substituída pela média do bloco, não é possível recuperar os detalhes originais. É por isso que
+                a pixelização é tão eficaz para criar o estilo visual "low quality" característico dos memes
+                modernos.</p>
+
             <!-- <h2>Contato</h2>
             <p>Caso tenha dúvidas ou sugestões, envie um e-mail para: <a
                     href="mailto:contato@baixarqualidadeimagem.com.br">contato@baixarqualidadeimagem.com.br</a></p> -->
@@ -100,7 +112,7 @@
                 <li><a href="sobre.html">Sobre</a></li>
                 <li><a href="privacidade.html">Privacidade</a></li>
                 <li><a href="termos.html">Termos de Uso</a></li>
-                <!-- <li><a href="mailto:contato@baixarqualidadeimagem.com.br">Contato</a></li> -->
+                <li><a href="contato.html">Contato</a></li>
             </ul>
         </div>
     </footer>
@@ -132,6 +144,8 @@
             });
         }
     </script>
+
+    <script src="js/cookie-consent.js"></script>
 </body>
 
 </html>
