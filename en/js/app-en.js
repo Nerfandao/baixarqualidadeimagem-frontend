@@ -459,14 +459,21 @@ function insertAdSenseBlock() {
         // Insert the container after the action buttons (inside preview-box)
         processedActions.parentNode.appendChild(adContainer);
 
-        // Wait for DOM to render before calling push (prevents availableWidth=0 error)
+        // Wait for DOM to render completely before calling push
+        // Longer timeout to ensure container has width
         setTimeout(() => {
             try {
-                (adsbygoogle = window.adsbygoogle || []).push({});
+                // Check if container has width before calling push
+                const container = document.getElementById('adsense-container');
+                if (container && container.offsetWidth > 0) {
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                } else {
+                    console.warn('AdSense container has no visible width');
+                }
             } catch (e) {
                 console.error('Error loading AdSense ad:', e);
             }
-        }, 100);
+        }, 300);
     }
 }
 

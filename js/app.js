@@ -460,16 +460,24 @@ function insertAdSenseBlock() {
         // Insere o container após os botões de ação (dentro do preview-box)
         processedActions.parentNode.appendChild(adContainer);
 
-        // Aguarda o DOM renderizar antes de chamar push (evita erro availableWidth=0)
+        // Aguarda o DOM renderizar completamente antes de chamar push
+        // Timeout maior para garantir que o container tenha largura
         setTimeout(() => {
             try {
-                (adsbygoogle = window.adsbygoogle || []).push({});
+                // Verifica se o container tem largura antes de chamar push
+                const container = document.getElementById('adsense-container');
+                if (container && container.offsetWidth > 0) {
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                } else {
+                    console.warn('AdSense container não tem largura visível');
+                }
             } catch (e) {
                 console.error('Erro ao carregar anúncio AdSense:', e);
             }
-        }, 100);
+        }, 300);
     }
 }
+
 
 
 function handleModeChange(mode) {
