@@ -549,6 +549,8 @@ input[type="range"]::-moz-range-thumb {
     width: 100%;
     max-width: 100%;
     padding: 0 16px;
+    min-height: 280px;
+    /* Altura mínima para o AdSense renderizar */
 }
 
 .ad-container .adsbygoogle {
@@ -999,6 +1001,8 @@ footer .container {
     .ad-container {
         margin-top: 16px;
         padding: 0 8px;
+        min-height: 250px;
+        /* Altura mínima menor para mobile */
     }
 }
 
