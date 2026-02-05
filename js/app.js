@@ -460,12 +460,14 @@ function insertAdSenseBlock() {
         // Insere o container após os botões de ação (dentro do preview-box)
         processedActions.parentNode.appendChild(adContainer);
 
-        // Chama o push do AdSense para carregar o anúncio
-        try {
-            (adsbygoogle = window.adsbygoogle || []).push({});
-        } catch (e) {
-            console.error('Erro ao carregar anúncio AdSense:', e);
-        }
+        // Aguarda o DOM renderizar antes de chamar push (evita erro availableWidth=0)
+        setTimeout(() => {
+            try {
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            } catch (e) {
+                console.error('Erro ao carregar anúncio AdSense:', e);
+            }
+        }, 100);
     }
 }
 
