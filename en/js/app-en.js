@@ -434,46 +434,47 @@ function updateAppliedSettings(settings) {
  * The ad only appears after the user processes the image.
  */
 function insertAdSenseBlock() {
-    const processedActions = document.getElementById('processedActions');
-
     // Check if ad container already exists
     let adContainer = document.getElementById('adsense-container');
 
     // If it doesn't exist, create the container and insert the ad block
-    if (!adContainer && processedActions) {
-        adContainer = document.createElement('div');
-        adContainer.id = 'adsense-container';
-        adContainer.className = 'ad-container';
+    if (!adContainer) {
+        const previewSection = document.getElementById('previewSection');
 
-        // Ad block HTML
-        adContainer.innerHTML = `
-            <!-- Bloco Horizontal de Anuncio -->
-            <ins class="adsbygoogle"
-                 style="display:block"
-                 data-ad-client="ca-pub-9144276134760026"
-                 data-ad-slot="7153492167"
-                 data-ad-format="auto"
-                 data-full-width-responsive="true"></ins>
-        `;
+        if (previewSection) {
+            adContainer = document.createElement('div');
+            adContainer.id = 'adsense-container';
+            adContainer.className = 'ad-container';
 
-        // Insert the container after the action buttons (inside preview-box)
-        processedActions.parentNode.appendChild(adContainer);
+            // Ad block HTML
+            adContainer.innerHTML = `
+                <!-- Bloco Horizontal de Anuncio -->
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-9144276134760026"
+                     data-ad-slot="7153492167"
+                     data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>
+            `;
 
-        // Wait for DOM to render completely before calling push
-        // Longer timeout to ensure container has width
-        setTimeout(() => {
-            try {
-                // Check if container has width before calling push
-                const container = document.getElementById('adsense-container');
-                if (container && container.offsetWidth > 0) {
-                    (adsbygoogle = window.adsbygoogle || []).push({});
-                } else {
-                    console.warn('AdSense container has no visible width');
+            // Insert container AFTER preview-section (full width available)
+            previewSection.parentNode.insertBefore(adContainer, previewSection.nextSibling);
+
+            // Wait for DOM to render completely before calling push
+            setTimeout(() => {
+                try {
+                    // Check if container has width before calling push
+                    const container = document.getElementById('adsense-container');
+                    if (container && container.offsetWidth > 0) {
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                    } else {
+                        console.warn('AdSense container has no visible width');
+                    }
+                } catch (e) {
+                    console.error('Error loading AdSense ad:', e);
                 }
-            } catch (e) {
-                console.error('Error loading AdSense ad:', e);
-            }
-        }, 300);
+            }, 300);
+        }
     }
 }
 
