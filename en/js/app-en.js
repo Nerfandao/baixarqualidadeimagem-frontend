@@ -460,20 +460,22 @@ function insertAdSenseBlock() {
             // Insert container AFTER preview-section (full width available)
             previewSection.parentNode.insertBefore(adContainer, previewSection.nextSibling);
 
-            // Wait for DOM to render completely before calling push
-            setTimeout(() => {
-                try {
-                    // Check if container has width before calling push
-                    const container = document.getElementById('adsense-container');
-                    if (container && container.offsetWidth > 0) {
-                        (adsbygoogle = window.adsbygoogle || []).push({});
-                    } else {
-                        console.warn('AdSense container has no visible width');
+            // Use requestAnimationFrame to ensure DOM is rendered
+            requestAnimationFrame(() => {
+                requestAnimationFrame(() => {
+                    try {
+                        const container = document.getElementById('adsense-container');
+                        if (container && container.offsetWidth > 0) {
+                            (adsbygoogle = window.adsbygoogle || []).push({});
+                            console.log('AdSense loaded with width:', container.offsetWidth);
+                        } else {
+                            console.warn('AdSense container has no visible width:', container ? container.offsetWidth : 'container not found');
+                        }
+                    } catch (e) {
+                        console.error('Error loading AdSense ad:', e);
                     }
-                } catch (e) {
-                    console.error('Error loading AdSense ad:', e);
-                }
-            }, 300);
+                });
+            });
         }
     }
 }

@@ -461,20 +461,22 @@ function insertAdSenseBlock() {
             // Insere o container APÓS a preview-section (largura total disponível)
             previewSection.parentNode.insertBefore(adContainer, previewSection.nextSibling);
 
-            // Aguarda o DOM renderizar completamente antes de chamar push
-            setTimeout(() => {
-                try {
-                    // Verifica se o container tem largura antes de chamar push
-                    const container = document.getElementById('adsense-container');
-                    if (container && container.offsetWidth > 0) {
-                        (adsbygoogle = window.adsbygoogle || []).push({});
-                    } else {
-                        console.warn('AdSense container não tem largura visível');
+            // Usa requestAnimationFrame para garantir que o DOM esteja renderizado
+            requestAnimationFrame(() => {
+                requestAnimationFrame(() => {
+                    try {
+                        const container = document.getElementById('adsense-container');
+                        if (container && container.offsetWidth > 0) {
+                            (adsbygoogle = window.adsbygoogle || []).push({});
+                            console.log('AdSense carregado com largura:', container.offsetWidth);
+                        } else {
+                            console.warn('AdSense container não tem largura visível:', container ? container.offsetWidth : 'container não encontrado');
+                        }
+                    } catch (e) {
+                        console.error('Erro ao carregar anúncio AdSense:', e);
                     }
-                } catch (e) {
-                    console.error('Erro ao carregar anúncio AdSense:', e);
-                }
-            }, 300);
+                });
+            });
         }
     }
 }
