@@ -540,6 +540,22 @@ input[type="range"]::-moz-range-thumb {
     font-size: 14px;
 }
 
+/* AdSense Container - Aparece apenas após processamento */
+.ad-container {
+    margin-top: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 100%;
+    padding: 0 16px;
+}
+
+.ad-container .adsbygoogle {
+    display: block;
+    margin: 0 auto;
+}
+
 /* SEO Content Section */
 .seo-content {
     background-color: var(--white);
@@ -977,6 +993,12 @@ footer .container {
     .btn-donation {
         width: 100%;
         max-width: 300px;
+    }
+
+    /* AdSense Container - Mobile */
+    .ad-container {
+        margin-top: 16px;
+        padding: 0 8px;
     }
 }
 

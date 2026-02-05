@@ -362,6 +362,9 @@ async function processImageAuto() {
 
         updateAppliedSettings(requestBody);
 
+        // Inserir anúncio após mostrar o resultado
+        insertAdSenseBlock();
+
         hideError();
         hideLoading();
 
@@ -511,6 +514,9 @@ async function processImage() {
         processedInfo.textContent = `${info.width}x${info.height} • ${info.sizeKB} KB`;
 
         document.getElementById('processedActions').style.display = 'flex';
+
+        // Inserir anúncio após mostrar o resultado
+        insertAdSenseBlock();
 
         hideError();
 

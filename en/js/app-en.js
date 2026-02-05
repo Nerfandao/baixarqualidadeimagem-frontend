@@ -360,6 +360,9 @@ async function processImageAuto() {
 
         updateAppliedSettings(requestBody);
 
+        // Insert ad after showing the result
+        insertAdSenseBlock();
+
         hideError();
         hideLoading();
 
@@ -424,6 +427,47 @@ function updateAppliedSettings(settings) {
 
     if (settingsApplied) settingsApplied.style.display = 'block';
 }
+
+/**
+ * Inserts the AdSense ad block below the action buttons.
+ * Ensures the ad is inserted only once and not duplicated.
+ * The ad only appears after the user processes the image.
+ */
+function insertAdSenseBlock() {
+    const processedActions = document.getElementById('processedActions');
+
+    // Check if ad container already exists
+    let adContainer = document.getElementById('adsense-container');
+
+    // If it doesn't exist, create the container and insert the ad block
+    if (!adContainer && processedActions) {
+        adContainer = document.createElement('div');
+        adContainer.id = 'adsense-container';
+        adContainer.className = 'ad-container';
+
+        // Ad block HTML
+        adContainer.innerHTML = `
+            <!-- Bloco Horizontal de Anuncio -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-9144276134760026"
+                 data-ad-slot="7153492167"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+        `;
+
+        // Insert the container after the action buttons (inside preview-box)
+        processedActions.parentNode.appendChild(adContainer);
+
+        // Call AdSense push to load the ad
+        try {
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        } catch (e) {
+            console.error('Error loading AdSense ad:', e);
+        }
+    }
+}
+
 
 function handleModeChange(mode) {
     currentSettings.mode = mode;
@@ -510,6 +554,9 @@ async function processImage() {
         processedInfo.textContent = `${info.width}x${info.height} • ${info.sizeKB} KB`;
 
         document.getElementById('processedActions').style.display = 'flex';
+
+        // Insert ad after showing the result
+        insertAdSenseBlock();
 
         hideError();
 
