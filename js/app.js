@@ -440,17 +440,18 @@ function insertAdSenseBlock() {
         // Mostra o container
         adContainer.style.display = 'flex';
 
-        // Inicializa o AdSense após mostrar o container
-        requestAnimationFrame(() => {
-            requestAnimationFrame(() => {
-                try {
+        // Aguarda 500ms para garantir que o container esteja completamente renderizado
+        setTimeout(() => {
+            try {
+                const ins = adContainer.querySelector('.adsbygoogle');
+                if (ins && !ins.getAttribute('data-adsbygoogle-status')) {
                     (adsbygoogle = window.adsbygoogle || []).push({});
                     console.log('AdSense inicializado');
-                } catch (e) {
-                    console.error('Erro ao carregar anúncio AdSense:', e);
                 }
-            });
-        });
+            } catch (e) {
+                console.error('Erro ao carregar anúncio AdSense:', e);
+            }
+        }, 500);
     }
 }
 

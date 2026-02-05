@@ -439,17 +439,18 @@ function insertAdSenseBlock() {
         // Show the container
         adContainer.style.display = 'flex';
 
-        // Initialize AdSense after showing the container
-        requestAnimationFrame(() => {
-            requestAnimationFrame(() => {
-                try {
+        // Wait 500ms to ensure container is fully rendered
+        setTimeout(() => {
+            try {
+                const ins = adContainer.querySelector('.adsbygoogle');
+                if (ins && !ins.getAttribute('data-adsbygoogle-status')) {
                     (adsbygoogle = window.adsbygoogle || []).push({});
                     console.log('AdSense initialized');
-                } catch (e) {
-                    console.error('Error loading AdSense ad:', e);
                 }
-            });
-        });
+            } catch (e) {
+                console.error('Error loading AdSense ad:', e);
+            }
+        }, 500);
     }
 }
 
