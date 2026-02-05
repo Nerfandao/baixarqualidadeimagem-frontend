@@ -429,6 +429,47 @@ function updateAppliedSettings(settings) {
     if (settingsApplied) settingsApplied.style.display = 'block';
 }
 
+/**
+ * Insere o bloco de anúncio do AdSense abaixo dos botões de ação.
+ * Garante que o anúncio seja inserido apenas uma vez e não duplicado.
+ * O anúncio só aparece após o usuário processar a imagem.
+ */
+function insertAdSenseBlock() {
+    const processedActions = document.getElementById('processedActions');
+
+    // Verifica se já existe um container de anúncio
+    let adContainer = document.getElementById('adsense-container');
+
+    // Se não existe, cria o container e insere o bloco do anúncio
+    if (!adContainer && processedActions) {
+        adContainer = document.createElement('div');
+        adContainer.id = 'adsense-container';
+        adContainer.className = 'ad-container';
+
+        // HTML do bloco de anúncio
+        adContainer.innerHTML = `
+            <!-- Bloco Horizontal de Anuncio -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-9144276134760026"
+                 data-ad-slot="7153492167"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+        `;
+
+        // Insere o container após os botões de ação (dentro do preview-box)
+        processedActions.parentNode.appendChild(adContainer);
+
+        // Chama o push do AdSense para carregar o anúncio
+        try {
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        } catch (e) {
+            console.error('Erro ao carregar anúncio AdSense:', e);
+        }
+    }
+}
+
+
 function handleModeChange(mode) {
     currentSettings.mode = mode;
 
