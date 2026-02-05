@@ -429,54 +429,27 @@ function updateAppliedSettings(settings) {
 }
 
 /**
- * Inserts the AdSense ad block below the action buttons.
- * Ensures the ad is inserted only once and not duplicated.
- * The ad only appears after the user processes the image.
+ * Shows the AdSense ad container and initializes the ad.
+ * The container already exists in HTML, we just show it after processing.
  */
 function insertAdSenseBlock() {
-    // Check if ad container already exists
-    let adContainer = document.getElementById('adsense-container');
+    const adContainer = document.getElementById('adsense-container');
 
-    // If it doesn't exist, create the container and insert the ad block
-    if (!adContainer) {
-        const previewSection = document.getElementById('previewSection');
+    if (adContainer && adContainer.style.display === 'none') {
+        // Show the container
+        adContainer.style.display = 'flex';
 
-        if (previewSection) {
-            adContainer = document.createElement('div');
-            adContainer.id = 'adsense-container';
-            adContainer.className = 'ad-container';
-
-            // Ad block HTML
-            adContainer.innerHTML = `
-                <!-- Bloco Horizontal de Anuncio -->
-                <ins class="adsbygoogle"
-                     style="display:block"
-                     data-ad-client="ca-pub-9144276134760026"
-                     data-ad-slot="7153492167"
-                     data-ad-format="auto"
-                     data-full-width-responsive="true"></ins>
-            `;
-
-            // Insert container AFTER preview-section (full width available)
-            previewSection.parentNode.insertBefore(adContainer, previewSection.nextSibling);
-
-            // Use requestAnimationFrame to ensure DOM is rendered
+        // Initialize AdSense after showing the container
+        requestAnimationFrame(() => {
             requestAnimationFrame(() => {
-                requestAnimationFrame(() => {
-                    try {
-                        const container = document.getElementById('adsense-container');
-                        if (container && container.offsetWidth > 0) {
-                            (adsbygoogle = window.adsbygoogle || []).push({});
-                            console.log('AdSense loaded with width:', container.offsetWidth);
-                        } else {
-                            console.warn('AdSense container has no visible width:', container ? container.offsetWidth : 'container not found');
-                        }
-                    } catch (e) {
-                        console.error('Error loading AdSense ad:', e);
-                    }
-                });
+                try {
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                    console.log('AdSense initialized');
+                } catch (e) {
+                    console.error('Error loading AdSense ad:', e);
+                }
             });
-        }
+        });
     }
 }
 
