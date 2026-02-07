@@ -440,18 +440,72 @@ function insertAdSenseBlock() {
         // Mostra o container
         adContainer.style.display = 'flex';
 
-        // Aguarda 500ms para garantir que o container esteja completamente renderizado
+        console.log('🔍 [AdSense Debug] Container mostrado, aguardando renderização...');
+
+        // Aguarda o container estar completamente renderizado
         setTimeout(() => {
             try {
                 const ins = adContainer.querySelector('.adsbygoogle');
+
+                // Logs de diagnóstico
+                const containerWidth = adContainer.offsetWidth;
+                const containerHeight = adContainer.offsetHeight;
+                const insWidth = ins ? ins.offsetWidth : 0;
+                const insHeight = ins ? ins.offsetHeight : 0;
+
+                console.log('📊 [AdSense Debug] Dimensões do container:', {
+                    containerWidth,
+                    containerHeight,
+                    insWidth,
+                    insHeight,
+                    containerDisplay: window.getComputedStyle(adContainer).display,
+                    containerVisibility: window.getComputedStyle(adContainer).visibility
+                });
+
+                // Verifica se o container tem largura suficiente
+                if (containerWidth === 0) {
+                    console.error('❌ [AdSense Debug] PROBLEMA: Container tem largura 0! O anúncio não será carregado.');
+                    console.log('💡 [AdSense Debug] Isso indica um problema de CSS/layout no site.');
+                    return;
+                }
+
+                if (containerWidth < 300) {
+                    console.warn('⚠️ [AdSense Debug] Container muito estreito:', containerWidth, 'px. Pode causar problemas.');
+                }
+
                 if (ins && !ins.getAttribute('data-adsbygoogle-status')) {
+                    console.log('✅ [AdSense Debug] Inicializando AdSense...');
                     (adsbygoogle = window.adsbygoogle || []).push({});
-                    console.log('AdSense inicializado');
+                    console.log('✅ [AdSense Debug] AdSense push() executado com sucesso');
+
+                    // Verifica o status após 2 segundos
+                    setTimeout(() => {
+                        const status = ins.getAttribute('data-adsbygoogle-status');
+                        console.log('📋 [AdSense Debug] Status após 2s:', status);
+
+                        if (status === 'done') {
+                            console.log('✅ [AdSense Debug] Anúncio carregado com sucesso!');
+                        } else if (!status) {
+                            console.warn('⚠️ [AdSense Debug] Anúncio ainda não processado. Pode ser problema do Google Ads (site novo, sem anúncios disponíveis, etc.)');
+                        }
+                    }, 2000);
+                } else if (ins && ins.getAttribute('data-adsbygoogle-status')) {
+                    console.log('ℹ️ [AdSense Debug] Anúncio já foi inicializado anteriormente');
+                } else {
+                    console.error('❌ [AdSense Debug] Elemento .adsbygoogle não encontrado!');
                 }
             } catch (e) {
-                console.error('Erro ao carregar anúncio AdSense:', e);
+                console.error('❌ [AdSense Debug] Erro ao carregar anúncio:', e);
+                console.log('💡 [AdSense Debug] Detalhes do erro:', {
+                    message: e.message,
+                    stack: e.stack
+                });
             }
         }, 500);
+    } else if (adContainer && adContainer.style.display !== 'none') {
+        console.log('ℹ️ [AdSense Debug] Container já está visível, pulando inicialização');
+    } else {
+        console.error('❌ [AdSense Debug] Container #adsense-container não encontrado no DOM!');
     }
 }
 
