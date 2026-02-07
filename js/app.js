@@ -442,6 +442,9 @@ function insertAdSenseBlock() {
 
         console.log('🔍 [AdSense Debug] Container mostrado, aguardando renderização...');
 
+        // Força um reflow para garantir que o CSS seja aplicado
+        void adContainer.offsetHeight;
+
         // Aguarda o container estar completamente renderizado
         setTimeout(() => {
             try {
