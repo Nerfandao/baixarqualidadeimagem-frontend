@@ -436,78 +436,21 @@ function insertAdSenseBlock() {
     const adContainer = document.getElementById('adsense-container');
 
     if (adContainer && adContainer.style.display === 'none') {
-        // Show the container
         adContainer.style.display = 'flex';
-
-        console.log('🔍 [AdSense Debug] Container shown, waiting for rendering...');
 
         // Force a reflow to ensure CSS is applied
         void adContainer.offsetHeight;
 
-        // Wait for the container to be fully rendered
         setTimeout(() => {
             try {
                 const ins = adContainer.querySelector('.adsbygoogle');
-
-                // Diagnostic logs
-                const containerWidth = adContainer.offsetWidth;
-                const containerHeight = adContainer.offsetHeight;
-                const insWidth = ins ? ins.offsetWidth : 0;
-                const insHeight = ins ? ins.offsetHeight : 0;
-
-                console.log('📊 [AdSense Debug] Container dimensions:', {
-                    containerWidth,
-                    containerHeight,
-                    insWidth,
-                    insHeight,
-                    containerDisplay: window.getComputedStyle(adContainer).display,
-                    containerVisibility: window.getComputedStyle(adContainer).visibility
-                });
-
-                // Check if container has sufficient width
-                if (containerWidth === 0) {
-                    console.error('❌ [AdSense Debug] PROBLEM: Container has width 0! Ad will not load.');
-                    console.log('💡 [AdSense Debug] This indicates a CSS/layout problem on the site.');
-                    return;
-                }
-
-                if (containerWidth < 300) {
-                    console.warn('⚠️ [AdSense Debug] Container too narrow:', containerWidth, 'px. May cause issues.');
-                }
-
                 if (ins && !ins.getAttribute('data-adsbygoogle-status')) {
-                    console.log('✅ [AdSense Debug] Initializing AdSense...');
                     (adsbygoogle = window.adsbygoogle || []).push({});
-                    console.log('✅ [AdSense Debug] AdSense push() executed successfully');
-
-                    // Check status after 2 seconds
-                    setTimeout(() => {
-                        const status = ins.getAttribute('data-adsbygoogle-status');
-                        console.log('📋 [AdSense Debug] Status after 2s:', status);
-
-                        if (status === 'done') {
-                            console.log('✅ [AdSense Debug] Ad loaded successfully!');
-                        } else if (!status) {
-                            console.warn('⚠️ [AdSense Debug] Ad not processed yet. May be Google Ads issue (new site, no ads available, etc.)');
-                        }
-                    }, 2000);
-                } else if (ins && ins.getAttribute('data-adsbygoogle-status')) {
-                    console.log('ℹ️ [AdSense Debug] Ad was already initialized previously');
-                } else {
-                    console.error('❌ [AdSense Debug] Element .adsbygoogle not found!');
                 }
             } catch (e) {
-                console.error('❌ [AdSense Debug] Error loading ad:', e);
-                console.log('💡 [AdSense Debug] Error details:', {
-                    message: e.message,
-                    stack: e.stack
-                });
+                console.error('Error loading AdSense ad:', e);
             }
         }, 500);
-    } else if (adContainer && adContainer.style.display !== 'none') {
-        console.log('ℹ️ [AdSense Debug] Container already visible, skipping initialization');
-    } else {
-        console.error('❌ [AdSense Debug] Container #adsense-container not found in DOM!');
     }
 }
 
