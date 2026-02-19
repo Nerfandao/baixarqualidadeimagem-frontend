@@ -61,6 +61,13 @@ document.addEventListener('DOMContentLoaded', () => {
     resolutionValue = document.getElementById('resolutionValue');
 
     setupEventListeners();
+
+    // Initialize pre-upload ad
+    try {
+        (window.adsbygoogle = window.adsbygoogle || []).push({});
+    } catch (e) {
+        console.error('Error initializing pre-upload ad:', e);
+    }
 });
 
 function setupEventListeners() {
@@ -243,6 +250,9 @@ async function uploadAndShowPreview(file) {
             originalInfo.textContent = `${img.width}x${img.height} • ${sizeKB} KB`;
 
             uploadSection.style.display = 'none';
+            // Hide pre-upload ad to avoid duplicating with the post-processing ad
+            const preUploadAd = document.getElementById('adsense-pre-upload');
+            if (preUploadAd) preUploadAd.style.display = 'none';
             previewSection.style.display = 'block';
             controlsSection.style.display = 'block';
 
@@ -691,6 +701,9 @@ function resetApp() {
     fileInput.value = '';
 
     uploadSection.style.display = 'block';
+    // Restore pre-upload ad on reset
+    const preUploadAd = document.getElementById('adsense-pre-upload');
+    if (preUploadAd) preUploadAd.style.display = 'flex';
     previewSection.style.display = 'none';
     controlsSection.style.display = 'none';
     document.getElementById('processedActions').style.display = 'none';
