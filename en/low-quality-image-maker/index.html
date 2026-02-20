@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Low Quality Image Maker – Advanced Meme Generator (Free Online Tool)</title>
+    <meta name="description"
+        content="Create pixelated, compressed and deep fried meme images instantly. Free online tool. Works on desktop and mobile. No signup required.">
+    <meta name="keywords"
+        content="low quality image maker, make image low quality, pixelate image online, deep fried meme generator, jpeg artifacts, bad quality image, meme generator free">
+    <link rel="canonical" href="https://www.baixarqualidadeimagem.com.br/en/low-quality-image-maker/">
+
+    <!-- Hreflang -->
+    <link rel="alternate" hreflang="en" href="https://www.baixarqualidadeimagem.com.br/en/low-quality-image-maker/" />
+    <link rel="alternate" hreflang="pt-BR" href="https://www.baixarqualidadeimagem.com.br/" />
+    <link rel="alternate" hreflang="x-default"
+        href="https://www.baixarqualidadeimagem.com.br/en/low-quality-image-maker/" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Low Quality Image Maker – Advanced Meme Generator (Free Online Tool)">
+    <meta property="og:description"
+        content="Create pixelated, compressed and deep fried meme images instantly. Free online tool. Works on desktop and mobile. No signup required.">
+    <meta property="og:url" content="https://www.baixarqualidadeimagem.com.br/en/low-quality-image-maker/">
+    <meta property="og:image" content="https://www.baixarqualidadeimagem.com.br/assets/og-image.png">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_US">
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Low Quality Image Maker – Advanced Meme Generator (Free Online Tool)">
+    <meta name="twitter:description"
+        content="Create pixelated, compressed and deep fried meme images instantly. Free. No signup.">
+    <meta name="twitter:image" content="https://www.baixarqualidadeimagem.com.br/assets/og-image.png">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://www.baixarqualidadeimagem.com.br/assets/favicon.png">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9144276134760026"
+        crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="../../css/styles.css">
+
+    <!-- BreadcrumbList Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type":"ListItem","position":1,"name":"Home","item":"https://www.baixarqualidadeimagem.com.br/en/"},
+        {"@type":"ListItem","position":2,"name":"Tools","item":"https://www.baixarqualidadeimagem.com.br/en/"},
+        {"@type":"ListItem","position":3,"name":"Low Quality Image Maker","item":"https://www.baixarqualidadeimagem.com.br/en/low-quality-image-maker/"}
+      ]
+    }
+    </script>
+
+    <!-- WebApplication Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Low Quality Image Maker",
+      "description": "Free online tool to intentionally degrade image quality for memes and internet culture",
+      "url": "https://www.baixarqualidadeimagem.com.br/en/low-quality-image-maker/",
+      "inLanguage": "en-US",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Web",
+      "offers": {"@type":"Offer","price":"0","priceCurrency":"USD"}
+    }
+    </script>
+
+    <!-- FAQ Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is this low quality image maker free?",
+          "acceptedAnswer": {"@type":"Answer","text":"Yes, completely free. No registration, no subscription, no limits on number of images processed."}
+        },
+        {
+          "@type": "Question",
+          "name": "Are my uploaded images stored?",
+          "acceptedAnswer": {"@type":"Answer","text":"Images are processed server-side and automatically deleted. We do not store, analyze, or share your images."}
+        },
+        {
+          "@type": "Question",
+          "name": "Does it work on mobile?",
+          "acceptedAnswer": {"@type":"Answer","text":"Yes. The tool is fully optimized for mobile browsers. Upload, process, and download from your phone or tablet with no issues."}
+        },
+        {
+          "@type": "Question",
+          "name": "Can I control how much quality is reduced?",
+          "acceptedAnswer": {"@type":"Answer","text":"Absolutely. You have full slider control over pixelation (2x–20x), JPEG compression (10%–95%), noise (0%–100%), blur (0–10), and output resolution (10%–100%)."}
+        },
+        {
+          "@type": "Question",
+          "name": "What is a deep fried meme?",
+          "acceptedAnswer": {"@type":"Answer","text":"A deep fried meme is an image that has been heavily over-processed to look degraded—featuring extreme JPEG compression artifacts, high saturation, noise, and pixelation—for comedic effect."}
+        },
+        {
+          "@type": "Question",
+          "name": "Is this different from an image compressor?",
+          "acceptedAnswer": {"@type":"Answer","text":"Yes. Image compressors try to reduce file size while maintaining visual quality. This tool intentionally degrades visual quality using pixelation, noise, and compression artifacts for creative and humorous purposes."}
+        },
+        {
+          "@type": "Question",
+          "name": "Is there a file size limit?",
+          "acceptedAnswer": {"@type":"Answer","text":"Yes, maximum input file size is 10MB. Supported formats: PNG, JPG, JPEG, and WEBP."}
+        },
+        {
+          "@type": "Question",
+          "name": "Why would anyone reduce image quality intentionally?",
+          "acceptedAnswer": {"@type":"Answer","text":"Intentional quality degradation is popular in meme culture, retro aesthetics, ironic humor, glitch art, and creating content that stands out on social media by leaning into the low-fi aesthetic."}
+        }
+      ]
+    }
+    </script>
+
+    <style>
+        .breadcrumb {
+            font-size: 14px;
+            color: #8B95A5;
+            padding: 12px 0 0;
+        }
+
+        .breadcrumb a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .breadcrumb span {
+            margin: 0 6px;
+        }
+
+        .tips-section {
+            background: #F0F6FF;
+            border-left: 4px solid var(--primary);
+            border-radius: 8px;
+            padding: 24px 28px;
+            margin: 32px auto;
+            max-width: 900px;
+        }
+
+        .tips-section h3 {
+            font-size: 18px;
+            color: var(--text);
+            margin-bottom: 14px;
+        }
+
+        .tips-section ul {
+            padding-left: 20px;
+        }
+
+        .tips-section li {
+            color: #5A6B7F;
+            margin-bottom: 10px;
+            line-height: 1.7;
+        }
+
+        .tips-section strong {
+            color: var(--text);
+        }
+
+        .authority-section {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 36px;
+            margin: 32px auto;
+            max-width: 900px;
+            box-shadow: 0 2px 12px var(--shadow);
+        }
+
+        .authority-section h2 {
+            font-size: 26px;
+            color: var(--text);
+            margin-bottom: 20px;
+        }
+
+        .authority-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 24px;
+        }
+
+        .authority-card {
+            background: var(--bg);
+            border-radius: 8px;
+            padding: 20px;
+            border-top: 3px solid var(--primary);
+        }
+
+        .authority-card h4 {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 8px;
+        }
+
+        .authority-card p {
+            font-size: 14px;
+            color: #5A6B7F;
+            line-height: 1.6;
+        }
+
+        .example-block {
+            background: var(--muted);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            margin: 16px 0;
+        }
+
+        .example-block img {
+            width: 100%;
+            max-width: 400px;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 8px;
+            display: block;
+            margin: 0 auto 10px;
+        }
+
+        .example-block p {
+            font-size: 13px;
+            color: #5A6B7F;
+            margin: 0;
+        }
+
+        .examples-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            max-width: 900px;
+            margin: 24px auto;
+        }
+
+        .related-tools-section {
+            max-width: 900px;
+            margin: 40px auto;
+        }
+
+        .related-tools-section h2 {
+            font-size: 24px;
+            color: var(--text);
+            margin-bottom: 20px;
+        }
+
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+        }
+
+        .related-card {
+            background: var(--white);
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 2px 8px var(--shadow);
+            text-decoration: none;
+            color: var(--text);
+            transition: transform 0.2s, box-shadow 0.2s;
+            border-top: 3px solid var(--primary);
+        }
+
+        .related-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px var(--shadow);
+        }
+
+        .related-card h3 {
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .related-card p {
+            font-size: 13px;
+            color: #5A6B7F;
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        .not-for-section {
+            background: #FFF8F0;
+            border-left: 4px solid #FFB347;
+            border-radius: 8px;
+            padding: 20px 24px;
+            margin: 24px auto;
+            max-width: 900px;
+        }
+
+        .not-for-section h3 {
+            font-size: 16px;
+            color: var(--text);
+            margin-bottom: 10px;
+        }
+
+        .not-for-section p {
+            font-size: 15px;
+            color: #5A6B7F;
+            margin: 0;
+        }
+
+        @media (max-width: 640px) {
+            .examples-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .authority-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="container">
+            <a href="/en" class="logo">
+                <img src="../../assets/logo.svg" alt="Low Quality Image Generator" width="200" height="40">
+            </a>
+            <button class="hamburger" id="hamburger" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="/en">Home</a></li>
+                <li><a href="/en/low-quality-image-maker/" style="color:var(--primary);font-weight:600;">Tool</a></li>
+                <li><a href="/en/blog/">Blog</a></li>
+                <li><a href="/en/about.html">About</a></li>
+                <li><a href="/en/donate.html" style="color:#fc8181;font-weight:600;">☕ Donate</a></li>
+                <li class="language-switcher-nav">
+                    <a href="/" class="lang-link">🇧🇷 PT</a>
+                    <span class="lang-separator">|</span>
+                    <a href="/en" class="lang-link active">🇺🇸 EN</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <!-- Breadcrumb -->
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="/en">Home</a><span>›</span>
+            <a href="/en">Tools</a><span>›</span>
+            <span>Low Quality Image Maker</span>
+        </nav>
+
+        <section class="hero">
+            <h1>Low Quality Image Maker</h1>
+            <p class="subtitle">The most advanced free online tool to create pixelated, compressed, and deep fried meme
+                images. Works perfectly on mobile and desktop. No signup required.</p>
+        </section>
+
+        <section class="seo-content" style="margin-top:0;padding-top:0;background:transparent;border-top:none;">
+            <div class="seo-container">
+                <p>A <strong>low quality image maker</strong> serves a surprisingly huge range of creative purposes:
+                    from crafting viral <a href="/en/deep-fried-meme-generator/">deep fried memes</a>, to producing
+                    retro-aesthetic content, to animating ironic social media posts. Unlike standard image compressors
+                    that fight to preserve quality, this tool gives you precise control to degrade it intentionally —
+                    and consistently — across every setting.</p>
+            </div>
+        </section>
+
+        <!-- TOOL EMBED -->
+        <section class="upload-section">
+            <div class="upload-area" id="uploadArea">
+                <svg class="upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                    <polyline points="17 8 12 3 7 8"></polyline>
+                    <line x1="12" y1="3" x2="12" y2="15"></line>
+                </svg>
+                <p class="upload-text">Drag your image here or click to select</p>
+                <p class="upload-hint">PNG, JPG, JPEG or WEBP (max. 10MB)</p>
+                <input type="file" id="fileInput" accept="image/png,image/jpeg,image/jpg,image/webp" hidden>
+            </div>
+            <div class="error-message" id="errorMessage"></div>
+        </section>
+
+        <div id="adsense-pre-upload" class="ad-container">
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9144276134760026"
+                data-ad-slot="7153492167" data-ad-format="horizontal" data-full-width-responsive="true"></ins>
+        </div>
+
+        <section class="preview-section" id="previewSection" style="display:none;">
+            <div class="preview-container">
+                <div class="preview-box">
+                    <h3>Original</h3>
+                    <img id="originalPreview" alt="Original image before quality reduction">
+                    <p class="image-info" id="originalInfo"></p>
+                    <div class="preview-actions">
+                        <button class="btn btn-secondary" id="changeImageBtn">Change Image</button>
+                    </div>
+                </div>
+                <div class="preview-box">
+                    <h3>Result</h3>
+                    <div id="processedPreview" class="processed-placeholder">
+                        <p>Waiting for processing...</p>
+                    </div>
+                    <p class="image-info" id="processedInfo"></p>
+                    <div class="preview-actions" id="processedActions" style="display:none;">
+                        <button class="btn btn-primary" id="downloadImageBtn">Download Image</button>
+                        <button class="btn btn-secondary" id="copyImageBtn">Copy Image</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div id="adsense-container" class="ad-container" style="display:none;">
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9144276134760026"
+                data-ad-slot="7153492167" data-ad-format="horizontal"></ins>
+        </div>
+
+        <section class="controls-section" id="controlsSection" style="display:none;">
+            <h2>Processing Settings</h2>
+            <div class="manual-controls">
+                <h3>Adjust Settings</h3>
+                <div class="control-group">
+                    <label>Preset Mode</label>
+                    <div class="mode-buttons">
+                        <button class="mode-btn" data-mode="baixa">Low Quality</button>
+                        <button class="mode-btn active" data-mode="media">Medium Quality</button>
+                        <button class="mode-btn" data-mode="extrema">Extreme (Meme)</button>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label for="pixelSlider">Pixelation: <span id="pixelValue">4</span>x</label>
+                    <input type="range" id="pixelSlider" min="2" max="20" value="4" step="1">
+                </div>
+                <div class="control-group">
+                    <label for="qualitySlider">JPEG Compression: <span id="qualityValue">50</span>%</label>
+                    <input type="range" id="qualitySlider" min="10" max="95" value="50" step="5">
+                </div>
+                <div class="control-group">
+                    <label for="noiseSlider">Noise: <span id="noiseValue">30</span>%</label>
+                    <input type="range" id="noiseSlider" min="0" max="100" value="30" step="10">
+                </div>
+                <div class="control-group">
+                    <label for="blurSlider">Blur: <span id="blurValue">0</span></label>
+                    <input type="range" id="blurSlider" min="0" max="10" value="0" step="1">
+                </div>
+                <div class="control-group">
+                    <label for="resolutionSlider">Resolution: <span id="resolutionValue">100</span>%</label>
+                    <input type="range" id="resolutionSlider" min="10" max="100" value="100" step="5">
+                </div>
+                <div class="action-buttons">
+                    <button id="processBtn" class="btn btn-primary">Process Again</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- TIPS SECTION -->
+        <div class="tips-section">
+            <h3>💡 Best Settings for Common Use Cases</h3>
+            <ul>
+                <li><strong>Deep Fried Meme:</strong> Pixelation 14x · JPEG Quality 15% · Noise 80% · Resolution 60%
+                </li>
+                <li><strong>Extreme Cursed Image:</strong> Pixelation 20x · JPEG Quality 10% · Noise 100% · Blur 4</li>
+                <li><strong>Subtle Retro Look:</strong> Pixelation 3x · JPEG Quality 55% · Noise 20% · Resolution 80%
+                </li>
+                <li><strong>Vintage Thumbnail:</strong> Pixelation 5x · JPEG Quality 35% · Noise 40% · Blur 1</li>
+                <li><strong>Censored / Mosaic Effect:</strong> Pixelation 18x · JPEG Quality 70% · Noise 0%</li>
+                <li><strong>Recommended input:</strong> Square or 4:3 images under 5MB produce the cleanest results for
+                    all presets.</li>
+            </ul>
+        </div>
+
+        <!-- SEO CONTENT -->
+        <section class="seo-content">
+            <div class="seo-container">
+                <h2>What Is a Low Quality Image Maker?</h2>
+                <p>A <strong>low quality image maker</strong> is a creative tool designed to intentionally degrade
+                    photographs and digital images. While traditional editing software works hard to enhance and
+                    preserve detail, this tool does the opposite — it applies controlled pixelation, heavy JPEG
+                    compression, noise injection, and blur to produce images that look degraded, distorted, or
+                    "meme-quality." This creative degradation has enormous demand across meme culture, ironic social
+                    media content, glitch art, retro aesthetics, and comedic visual storytelling.</p>
+
+                <h2>How It Works</h2>
+                <p>Unlike browser-only tools that apply degradation filters client-side (often inconsistently), this low
+                    quality image maker processes your images <strong>server-side</strong>. Your file is uploaded,
+                    processed through a dedicated image pipeline, and returned as a properly degraded JPEG. This means
+                    every setting produces reliable, repeatable results regardless of your device, browser, or operating
+                    system. The pipeline applies effects in sequence: pixelation first (which creates the characteristic
+                    blocky look), then JPEG re-encoding at your chosen quality level (which adds compression artifacts),
+                    then noise (which introduces grain), then blur if requested, and finally resolution scaling.</p>
+
+                <!-- EXAMPLE BLOCK -->
+                <div class="examples-grid">
+                    <div class="example-block">
+                        <img src="../../assets/lowquali.jpg"
+                            alt="low quality image example showing pixelation and jpeg artifacts" loading="lazy">
+                        <p>Heavy pixelation + JPEG artifacts</p>
+                    </div>
+                    <div class="example-block">
+                        <img src="../../assets/lowquali2.jpg"
+                            alt="deep fried meme image example with noise and compression" loading="lazy">
+                        <p>Deep fried meme effect with noise</p>
+                    </div>
+                </div>
+
+                <h2>Why Use a Low Quality Image Maker?</h2>
+                <p>The motivations are varied and entirely legitimate. Meme creators need a consistent way to produce
+                    recognizable low-fi aesthetics. Content creators use quality degradation to make thumbnails look
+                    distinct. Digital artists exploring vaporwave or glitch art need precise control. Social media
+                    managers use the "bad quality" aesthetic ironically to increase engagement. Even educators use
+                    pixelation to anonymize faces in screenshots. The demand for intentional image degradation is real,
+                    growing, and multi-disciplinary.</p>
+
+                <h2>Use Cases</h2>
+                <p><strong>Deep fried memes</strong> — the iconic over-processed internet image format — are the most
+                    popular use case. Visit our dedicated <a href="/en/deep-fried-meme-generator/">deep fried meme
+                        generator</a> for an angle focused specifically on that aesthetic. Beyond memes, common use
+                    cases include: ironic social media profile pictures, retro-stylized digital art, reaction images,
+                    video thumbnails designed to look vintage or lo-fi, and creating intentionally degraded assets for
+                    parody or satirical content.</p>
+
+                <p>If you want just the pixelation effect without compression artifacts, try <a
+                        href="/en/pixelate-image-online/">pixelate image online</a> — a focused page explaining the
+                    mosaic and pixel art use cases specifically. For reducing image quality more generally without heavy
+                    pixelation, see <a href="/en/make-image-low-quality/">make image low quality</a>.</p>
+
+                <h2>Advanced Controls Explained</h2>
+                <p><strong>Pixelation</strong> enlarges individual pixels to create a blocky, mosaic effect — at 20x,
+                    even small images look like 8-bit sprites. <strong>JPEG Compression</strong> controls the
+                    re-encoding quality; at 10%, aggressive compression artifacts appear as blocky color regions and
+                    ringing around edges (similar to <a href="/en/jpeg-artifacts-generator/">JPEG artifact
+                        generation</a>). <strong>Noise</strong> adds random pixel-level grain, mimicking old sensors or
+                    poor signal. <strong>Blur</strong> softens edges and detail. <strong>Resolution</strong> scales the
+                    output image dimensions, reducing the megapixel count before all other effects are applied —
+                    dramatically increasing the "bad quality" appearance at low values.</p>
+            </div>
+        </section>
+
+        <!-- AUTHORITY SECTION -->
+        <div class="authority-section">
+            <h2>Why This Tool Is More Flexible Than Basic Browser-Only Tools</h2>
+            <p style="color:#5A6B7F;margin-bottom:20px;">Many online image degradation tools run entirely in your
+                browser, applying CSS filters or canvas operations that behave differently across devices and browsers.
+                This tool processes images server-side, which means consistent, predictable results every time.</p>
+            <div class="authority-grid">
+                <div class="authority-card">
+                    <h4>🖥️ Server-Side Processing</h4>
+                    <p>Results are identical whether you use Chrome, Safari, Firefox, or a mobile browser. No canvas
+                        inconsistencies.</p>
+                </div>
+                <div class="authority-card">
+                    <h4>📱 Mobile Reliability</h4>
+                    <p>Fully tested on iOS and Android. Upload from your camera roll, process, and download in seconds —
+                        no desktop required.</p>
+                </div>
+                <div class="authority-card">
+                    <h4>🎛️ Full Slider Control</h4>
+                    <p>5 independent parameters to tune. Most tools offer 1-2 levels. This gives you the full spectrum
+                        from subtle to extreme.</p>
+                </div>
+                <div class="authority-card">
+                    <h4>⚡ Consistent Performance</h4>
+                    <p>Processing happens on the server, not your CPU. Large images process quickly without slowing down
+                        your device.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- WHEN NOT TO USE -->
+        <div class="not-for-section">
+            <h3>When NOT to use this tool</h3>
+            <p>This tool is designed for intentional creative degradation, not optimization. If you need to reduce file
+                size while preserving image quality, use a proper image compressor. If you need to resize for web use
+                while maintaining sharpness, use a dedicated resize tool. This tool is for creative, humorous, and
+                artistic degradation purposes only.</p>
+        </div>
+
+        <!-- FAQ -->
+        <section class="editorial-section">
+            <h2>Frequently Asked Questions</h2>
+
+            <h3 style="font-size:18px;color:var(--text);margin-top:24px;margin-bottom:12px;">Is this free?</h3>
+            <p>Yes, completely free. No registration, no subscription, no watermarks, and no limits on the number of
+                images you process.</p>
+
+            <h3 style="font-size:18px;color:var(--text);margin-top:24px;margin-bottom:12px;">Are images stored after
+                processing?</h3>
+            <p>No. Images are processed server-side and automatically deleted immediately after. We do not store,
+                analyze, or share any uploaded images.</p>
+
+            <h3 style="font-size:18px;color:var(--text);margin-top:24px;margin-bottom:12px;">Does it work on mobile?
+            </h3>
+            <p>Yes. The tool is fully responsive and tested on iOS and Android. You can upload directly from your
+                phone's camera roll or gallery.</p>
+
+            <h3 style="font-size:18px;color:var(--text);margin-top:24px;margin-bottom:12px;">Can I control how much
+                quality is reduced?</h3>
+            <p>Absolutely. You have 5 sliders: pixelation (2x–20x), JPEG compression (10%–95%), noise (0–100%), blur
+                (0–10), and resolution (10%–100% of original). This combination gives you hundreds of possible outputs
+                ranging from subtle to extreme.</p>
+
+            <h3 style="font-size:18px;color:var(--text);margin-top:24px;margin-bottom:12px;">What is a deep fried meme?
+            </h3>
+            <p>A deep fried meme is an image that has been intentionally over-processed to look extremely degraded —
+                heavy JPEG artifacts, oversaturation, excessive noise, and blown-out contrast. It's a popular internet
+                humor format. Our <a href="/en/deep-fried-meme-generator/">deep fried meme generator</a> page covers
+                this in detail.</p>
+
+            <h3 style="font-size:18px;color:var(--text);margin-top:24px;margin-bottom:12px;">Is this different from an
+                image compressor?</h3>
+            <p>Yes. Image compressors minimize file size while trying to preserve visual quality. This tool
+                intentionally sacrifices visual quality for creative effect — adding compression artifacts, pixelation,
+                and noise on purpose.</p>
+
+            <h3 style="font-size:18px;color:var(--text);margin-top:24px;margin-bottom:12px;">Is there a file size limit?
+            </h3>
+            <p>Maximum input file size is 10MB. Supported formats: PNG, JPG, JPEG, and WEBP. Output is delivered as a
+                JPEG file.</p>
+
+            <h3 style="font-size:18px;color:var(--text);margin-top:24px;margin-bottom:12px;">Why would anyone reduce
+                image quality intentionally?</h3>
+            <p>Intentional degradation is used in meme creation, glitch art, retro aesthetics, social media humor,
+                ironic profile pictures, comedic thumbnails, and artistic exploration of lo-fi visual language. It's a
+                legitimate and popular creative technique.</p>
+        </section>
+
+        <!-- RELATED TOOLS -->
+        <div class="related-tools-section">
+            <h2>Related Tools</h2>
+            <div class="related-grid">
+                <a href="/en/deep-fried-meme-generator/" class="related-card">
+                    <h3>🔥 Deep Fried Meme Generator</h3>
+                    <p>Create the iconic over-processed, crusty meme look with extreme settings.</p>
+                </a>
+                <a href="/en/pixelate-image-online/" class="related-card">
+                    <h3>🟦 Pixelate Image Online</h3>
+                    <p>Apply mosaic and pixel art effects. Great for censoring or retro aesthetics.</p>
+                </a>
+                <a href="/en/jpeg-artifacts-generator/" class="related-card">
+                    <h3>🗜️ JPEG Artifacts Generator</h3>
+                    <p>Add classic JPEG compression artifacts and color banding to any image.</p>
+                </a>
+                <a href="/en/make-image-low-quality/" class="related-card">
+                    <h3>📉 Make Image Low Quality</h3>
+                    <p>General image quality reduction for memes, social media, and creative projects.</p>
+                </a>
+                <a href="/en/best-low-quality-image-maker/" class="related-card">
+                    <h3>🏆 Best Tool Comparison</h3>
+                    <p>See how this tool compares with basic browser-only alternatives.</p>
+                </a>
+            </div>
+        </div>
+
+        <!-- DONATION -->
+        <section class="donation-section">
+            <div class="container">
+                <div class="donation-content">
+                    <div class="donation-text">
+                        <h2>☕ Support this project</h2>
+                        <p>This tool is completely <strong>free</strong> and maintained independently.</p>
+                        <p>If it helped you create your memes, consider buying me a coffee!</p>
+                        <a href="https://buymeacoffee.com/nerfandao" target="_blank" rel="noopener noreferrer"
+                            class="btn btn-donation">☕ Buy me a coffee</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Low Quality Image Generator. All rights reserved.</p>
+            <ul class="footer-links">
+                <li><a href="/en/about.html">About</a></li>
+                <li><a href="/en/privacy.html">Privacy</a></li>
+                <li><a href="/en/terms.html">Terms of Use</a></li>
+                <li><a href="/en/contact.html">Contact</a></li>
+                <li><a href="/en/blog/">Blog</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script src="/en/js/app-en.js"></script>
+    <script src="/js/cookie-consent.js"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('open');
+        });
+    </script>
+</body>
+
+</html>

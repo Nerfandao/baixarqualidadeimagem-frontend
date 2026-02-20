@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>JPEG Artifacts Generator – Add Compression Artifacts to Images Free</title>
+    <meta name="description"
+        content="Add JPEG compression artifacts to any image free online. Create the classic over-compressed look with color banding and block artifacts. No signup needed.">
+    <link rel="canonical" href="https://www.baixarqualidadeimagem.com.br/en/jpeg-artifacts-generator/">
+    <link rel="alternate" hreflang="en" href="https://www.baixarqualidadeimagem.com.br/en/jpeg-artifacts-generator/" />
+    <link rel="alternate" hreflang="pt-BR" href="https://www.baixarqualidadeimagem.com.br/" />
+    <link rel="alternate" hreflang="x-default"
+        href="https://www.baixarqualidadeimagem.com.br/en/jpeg-artifacts-generator/" />
+    <meta property="og:title" content="JPEG Artifacts Generator – Add Compression Artifacts to Images Free">
+    <meta property="og:description"
+        content="Add JPEG compression artifacts to any image. Color banding, block artifacts, and the iconic over-compressed look. Free, instant.">
+    <meta property="og:url" content="https://www.baixarqualidadeimagem.com.br/en/jpeg-artifacts-generator/">
+    <meta property="og:image" content="https://www.baixarqualidadeimagem.com.br/assets/og-image.png">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="JPEG Artifacts Generator – Free Online Tool">
+    <meta name="twitter:description"
+        content="Add iconic JPEG compression artifacts, color banding, and block distortion to any image. Free, no signup.">
+    <meta name="twitter:image" content="https://www.baixarqualidadeimagem.com.br/assets/og-image.png">
+    <link rel="icon" type="image/png" href="https://www.baixarqualidadeimagem.com.br/assets/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9144276134760026"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../../css/styles.css">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.baixarqualidadeimagem.com.br/en/"},{"@type":"ListItem","position":2,"name":"Tools"},{"@type":"ListItem","position":3,"name":"JPEG Artifacts Generator","item":"https://www.baixarqualidadeimagem.com.br/en/jpeg-artifacts-generator/"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What are JPEG artifacts?","acceptedAnswer":{"@type":"Answer","text":"JPEG artifacts are visual distortions caused by aggressive JPEG compression. They include blocky color regions (8x8 pixel blocks from the DCT algorithm), color banding, edge ringing, and loss of fine detail."}},{"@type":"Question","name":"How do I add JPEG artifacts to an image?","acceptedAnswer":{"@type":"Answer","text":"Upload your image, lower the JPEG Compression slider (lower % = more artifacts), and click Process. The server re-encodes your image at that quality level, introducing compression artifacts."}},{"@type":"Question","name":"What JPEG quality level creates the best artifact look?","acceptedAnswer":{"@type":"Answer","text":"10–25% JPEG quality produces strong, visible artifacts. Below 20%, you'll see heavy block patterns and color banding typical of 'deep fried' meme images."}},{"@type":"Question","name":"Is this free?","acceptedAnswer":{"@type":"Answer","text":"Yes. Free, no signup, no watermarks. Unlimited uses."}},{"@type":"Question","name":"How is this different from a meme generator?","acceptedAnswer":{"@type":"Answer","text":"This tool focuses on the JPEG compression artifact effect specifically. For the full deep fried meme look (combining artifacts with pixelation and noise), use the deep fried meme generator."}}]}
+    </script>
+    <style>
+        .breadcrumb {
+            font-size: 14px;
+            color: #8B95A5;
+            padding: 12px 0 0
+        }
+
+        .breadcrumb a {
+            color: var(--primary);
+            text-decoration: none
+        }
+
+        .breadcrumb span {
+            margin: 0 6px
+        }
+
+        .tips-section {
+            background: #F0F6FF;
+            border-left: 4px solid var(--primary);
+            border-radius: 8px;
+            padding: 24px 28px;
+            margin: 32px auto;
+            max-width: 900px
+        }
+
+        .tips-section h3 {
+            font-size: 18px;
+            color: var(--text);
+            margin-bottom: 14px
+        }
+
+        .tips-section ul {
+            padding-left: 20px
+        }
+
+        .tips-section li {
+            color: #5A6B7F;
+            margin-bottom: 10px;
+            line-height: 1.7
+        }
+
+        .tips-section strong {
+            color: var(--text)
+        }
+
+        .example-block {
+            background: var(--muted);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            margin: 16px 0
+        }
+
+        .example-block img {
+            width: 100%;
+            max-width: 400px;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 8px;
+            display: block;
+            margin: 0 auto 10px
+        }
+
+        .example-block p {
+            font-size: 13px;
+            color: #5A6B7F;
+            margin: 0
+        }
+
+        .examples-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            max-width: 900px;
+            margin: 24px auto
+        }
+
+        .related-tools-section {
+            max-width: 900px;
+            margin: 40px auto
+        }
+
+        .related-tools-section h2 {
+            font-size: 24px;
+            color: var(--text);
+            margin-bottom: 20px
+        }
+
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px
+        }
+
+        .related-card {
+            background: var(--white);
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 2px 8px var(--shadow);
+            text-decoration: none;
+            color: var(--text);
+            transition: transform .2s, box-shadow .2s;
+            border-top: 3px solid var(--primary);
+            display: block
+        }
+
+        .related-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px var(--shadow)
+        }
+
+        .related-card h3 {
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 6px
+        }
+
+        .related-card p {
+            font-size: 13px;
+            color: #5A6B7F;
+            margin: 0;
+            line-height: 1.5
+        }
+
+        .not-for-section {
+            background: #FFF8F0;
+            border-left: 4px solid #FFB347;
+            border-radius: 8px;
+            padding: 20px 24px;
+            margin: 24px auto;
+            max-width: 900px
+        }
+
+        .not-for-section h3 {
+            font-size: 16px;
+            color: var(--text);
+            margin-bottom: 10px
+        }
+
+        .not-for-section p {
+            font-size: 15px;
+            color: #5A6B7F;
+            margin: 0
+        }
+
+        @media(max-width:640px) {
+            .examples-grid {
+                grid-template-columns: 1fr
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="container">
+            <a href="/en" class="logo"><img src="../../assets/logo.svg" alt="Low Quality Image Generator" width="200"
+                    height="40"></a>
+            <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="/en">Home</a></li>
+                <li><a href="/en/low-quality-image-maker/">Tools</a></li>
+                <li><a href="/en/blog/">Blog</a></li>
+                <li><a href="/en/about.html">About</a></li>
+                <li><a href="/en/donate.html" style="color:#fc8181;font-weight:600;">☕ Donate</a></li>
+                <li class="language-switcher-nav">
+                    <a href="/" class="lang-link">🇧🇷 PT</a><span class="lang-separator">|</span><a href="/en"
+                        class="lang-link active">🇺🇸 EN</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main class="container">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="/en">Home</a><span>›</span><a href="/en">Tools</a><span>›</span><span>JPEG Artifacts
+                Generator</span>
+        </nav>
+        <section class="hero">
+            <h1>JPEG Artifacts Generator</h1>
+            <p class="subtitle">Add authentic JPEG compression artifacts — block distortion, color banding, and edge
+                ringing — to any image. Free, instant, no signup required.</p>
+        </section>
+        <section class="seo-content" style="margin-top:0;padding-top:0;background:transparent;border-top:none;">
+            <div class="seo-container">
+                <p><strong>JPEG artifacts</strong> are the visual signatures of aggressive image compression — the
+                    blocky color regions, color halos, and loss of fine texture that appear when a JPEG is saved at very
+                    low quality. This tool lets you intentionally introduce these artifacts with precise control over
+                    compression level. Whether you're going for the classic "over-compressed meme" look or exploring the
+                    aesthetic of early internet image culture, this generator handles it server-side for consistent
+                    results. For the full degradation toolkit including pixelation and noise, see the <a
+                        href="/en/low-quality-image-maker/">low quality image maker</a>.</p>
+            </div>
+        </section>
+
+        <section class="upload-section">
+            <div class="upload-area" id="uploadArea">
+                <svg class="upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                    <polyline points="17 8 12 3 7 8"></polyline>
+                    <line x1="12" y1="3" x2="12" y2="15"></line>
+                </svg>
+                <p class="upload-text">Drag your image here or click to select</p>
+                <p class="upload-hint">PNG, JPG, JPEG or WEBP (max. 10MB)</p>
+                <input type="file" id="fileInput" accept="image/png,image/jpeg,image/jpg,image/webp" hidden>
+            </div>
+            <div class="error-message" id="errorMessage"></div>
+        </section>
+        <div id="adsense-pre-upload" class="ad-container">
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9144276134760026"
+                data-ad-slot="7153492167" data-ad-format="horizontal" data-full-width-responsive="true"></ins>
+        </div>
+        <section class="preview-section" id="previewSection" style="display:none;">
+            <div class="preview-container">
+                <div class="preview-box">
+                    <h3>Original</h3>
+                    <img id="originalPreview" alt="Original image before JPEG artifact compression">
+                    <p class="image-info" id="originalInfo"></p>
+                    <div class="preview-actions"><button class="btn btn-secondary" id="changeImageBtn">Change
+                            Image</button></div>
+                </div>
+                <div class="preview-box">
+                    <h3>With JPEG Artifacts</h3>
+                    <div id="processedPreview" class="processed-placeholder">
+                        <p>Waiting for processing...</p>
+                    </div>
+                    <p class="image-info" id="processedInfo"></p>
+                    <div class="preview-actions" id="processedActions" style="display:none;">
+                        <button class="btn btn-primary" id="downloadImageBtn">Download Image</button>
+                        <button class="btn btn-secondary" id="copyImageBtn">Copy Image</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div id="adsense-container" class="ad-container" style="display:none;">
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9144276134760026"
+                data-ad-slot="7153492167" data-ad-format="horizontal"></ins>
+        </div>
+        <section class="controls-section" id="controlsSection" style="display:none;">
+            <h2>Processing Settings</h2>
+            <div class="manual-controls">
+                <h3>Adjust Settings</h3>
+                <div class="control-group">
+                    <label>Preset Mode</label>
+                    <div class="mode-buttons">
+                        <button class="mode-btn" data-mode="baixa">Low Quality</button>
+                        <button class="mode-btn active" data-mode="media">Medium Quality</button>
+                        <button class="mode-btn" data-mode="extrema">Extreme (Meme)</button>
+                    </div>
+                </div>
+                <div class="control-group"><label for="pixelSlider">Pixelation: <span
+                            id="pixelValue">4</span>x</label><input type="range" id="pixelSlider" min="2" max="20"
+                        value="4" step="1"></div>
+                <div class="control-group"><label for="qualitySlider">JPEG Compression: <span
+                            id="qualityValue">50</span>%</label><input type="range" id="qualitySlider" min="10" max="95"
+                        value="50" step="5"></div>
+                <div class="control-group"><label for="noiseSlider">Noise: <span
+                            id="noiseValue">30</span>%</label><input type="range" id="noiseSlider" min="0" max="100"
+                        value="30" step="10"></div>
+                <div class="control-group"><label for="blurSlider">Blur: <span id="blurValue">0</span></label><input
+                        type="range" id="blurSlider" min="0" max="10" value="0" step="1"></div>
+                <div class="control-group"><label for="resolutionSlider">Resolution: <span
+                            id="resolutionValue">100</span>%</label><input type="range" id="resolutionSlider" min="10"
+                        max="100" value="100" step="5"></div>
+                <div class="action-buttons"><button id="processBtn" class="btn btn-primary">Process Again</button></div>
+            </div>
+        </section>
+
+        <div class="tips-section">
+            <h3>🗜️ JPEG Artifact Strength Guide</h3>
+            <ul>
+                <li><strong>Subtle Artifacts (barely noticeable):</strong> JPEG Quality 65–75% · Pixelation 2x · Noise
+                    0%</li>
+                <li><strong>Classic "Saved Too Many Times":</strong> JPEG Quality 25% · Pixelation 4x · Noise 20%</li>
+                <li><strong>Strong Block Pattern Look:</strong> JPEG Quality 10–15% · Pixelation 2x · Noise 0%</li>
+                <li><strong>Full Deep Fried Combination:</strong> JPEG Quality 10% · Pixelation 14x · Noise 80%</li>
+                <li><strong>Pro tip:</strong> Keep pixelation low (2x–4x) and noise at 0% to showcase pure JPEG
+                    compression artifacts without other visual effects masking them.</li>
+            </ul>
+        </div>
+
+        <section class="seo-content">
+            <div class="seo-container">
+                <h2>What Are JPEG Artifacts?</h2>
+                <p>JPEG compression uses a mathematical technique called Discrete Cosine Transform (DCT), which
+                    processes images in 8×8 pixel blocks. At high quality settings (90%+), these blocks are nearly
+                    invisible. As quality decreases, the algorithm discards more frequency information within each
+                    block, causing neighboring blocks to show increasingly obvious color boundaries — the distinctive
+                    rectangular patches and halos that define a "heavily compressed" image.</p>
+                <p>Specifically, JPEG artifacts manifest as: <strong>blocking</strong> (visible 8×8 grid of color
+                    regions), <strong>ringing</strong> (ghost edges around high-contrast boundaries), <strong>color
+                        smearing</strong> (chroma subsampling loss), and <strong>mosquito noise</strong> (buzzing
+                    texture around sharp edges). Each of these becomes more pronounced as quality decreases below 30%.
+                </p>
+
+                <div class="examples-grid">
+                    <div class="example-block">
+                        <img src="../../assets/jpegblock.jpg"
+                            alt="JPEG artifacts example showing block compression distortion pattern" loading="lazy">
+                        <p>Heavy JPEG compression (10%) shows clear 8×8 block patterns</p>
+                    </div>
+                    <div class="example-block">
+                        <img src="../../assets/jpegring.jpg"
+                            alt="jpeg artifact generator result with color banding and ringing effect" loading="lazy">
+                        <p>Color banding and ringing artifacts around high-contrast edges</p>
+                    </div>
+                </div>
+
+                <h2>Why JPEG Artifacts Are Culturally Iconic</h2>
+                <p>JPEG artifacts are the visual fingerprint of Internet 1.0. Before broadband, images were compressed
+                    aggressively to reduce load times, and the resulting block artifacts became associated with the
+                    early web aesthetic. As image quality improved, this look became nostalgic — and then ironic. The <a
+                        href="/en/deep-fried-meme-generator/">deep fried meme</a> aesthetic deliberately amplifies JPEG
+                    artifacts as a comedic signal, saying: "this image has survived the internet long enough to be
+                    worthy."</p>
+                <p>Beyond irony, JPEG artifacts have their own distinct aesthetic in digital art. Some artists use heavy
+                    compression deliberately for its texture effects — the block patterns create a kind of digital grain
+                    that smooth, uncompressed images lack entirely.</p>
+
+                <h2>Using JPEG Artifacts vs Other Degradation Effects</h2>
+                <p>JPEG artifacts alone produce a different look than pixelation or noise. A pure JPEG artifact image
+                    has clean edges within regions but blocky boundaries between them. Combined with pixelation (large
+                    pixel blocks) you get a doubled-up blocky effect. Combined with noise, you get the full <a
+                        href="/en/deep-fried-meme-generator/">deep fried meme</a> texture. For the complete picture of
+                    what each effect does, the <a href="/en/low-quality-image-maker/">low quality image maker</a> lets
+                    you mix all five independently. For general quality reduction including resolution, see <a
+                        href="/en/make-image-low-quality/">make image low quality</a>.</p>
+            </div>
+        </section>
+
+        <div class="not-for-section">
+            <h3>When NOT to use this tool</h3>
+            <p>JPEG artifacts are the opposite of good image optimization. Do not use this for professional photography,
+                product images, web performance optimization, or any use case where image clarity matters. For actual
+                quality compression with visual fidelity, use dedicated image optimization tools.</p>
+        </div>
+
+        <section class="editorial-section">
+            <h2>Frequently Asked Questions</h2>
+            <h3 style="font-size:18px;color:var(--text);margin-top:24px;margin-bottom:12px;">What are JPEG artifacts?
+            </h3>
+            <p>Visual distortions from aggressive JPEG compression: blocky 8×8 pixel regions, color banding, edge
+                ringing, and loss of fine detail. They become visible below ~50% JPEG quality and very obvious below
+                25%.</p>
+            <h3 style="font-size:18px;color:var(--text);margin-top:24px;margin-bottom:12px;">How do I add JPEG artifacts
+                to my image?</h3>
+            <p>Upload your image, lower the JPEG Compression slider (try 10–25% for strong effects), and click Process.
+                The server re-encodes at that quality, introducing real compression artifacts.</p>
+            <h3 style="font-size:18px;color:var(--text);margin-top:24px;margin-bottom:12px;">What quality level gives
+                the best artifact look?</h3>
+            <p>10–20% JPEG quality produces the most dramatic artifacts. Keep pixelation at 2x and noise at 0% to see
+                pure compression blocks without other effects masking them.</p>
+            <h3 style="font-size:18px;color:var(--text);margin-top:24px;margin-bottom:12px;">Is this free?</h3>
+            <p>Yes. Free, no registration, no watermarks, unlimited images.</p>
+            <h3 style="font-size:18px;color:var(--text);margin-top:24px;margin-bottom:12px;">How is this different from
+                the deep fried meme generator?</h3>
+            <p>This page focuses on understanding and controlling the JPEG artifact effect specifically. The <a
+                    href="/en/deep-fried-meme-generator/">deep fried meme generator</a> combines artifacts with
+                pixelation and noise for the full extreme meme aesthetic.</p>
+        </section>
+
+        <div class="related-tools-section">
+            <h2>Related Tools</h2>
+            <div class="related-grid">
+                <a href="/en/low-quality-image-maker/" class="related-card">
+                    <h3>🎛️ Low Quality Image Maker</h3>
+                    <p>Full controls: pixelation, JPEG, noise, blur, and resolution combined.</p>
+                </a>
+                <a href="/en/deep-fried-meme-generator/" class="related-card">
+                    <h3>🔥 Deep Fried Meme Generator</h3>
+                    <p>Combine JPEG artifacts with extreme pixelation and noise.</p>
+                </a>
+                <a href="/en/pixelate-image-online/" class="related-card">
+                    <h3>🟦 Pixelate Image Online</h3>
+                    <p>Apply mosaic and pixel art effects independently.</p>
+                </a>
+                <a href="/en/make-image-low-quality/" class="related-card">
+                    <h3>📉 Make Image Low Quality</h3>
+                    <p>General quality reduction for memes and social media humor.</p>
+                </a>
+                <a href="/en/best-low-quality-image-maker/" class="related-card">
+                    <h3>🏆 Best Tool Comparison</h3>
+                    <p>See how this tool compares with browser-only alternatives.</p>
+                </a>
+            </div>
+        </div>
+        <section class="donation-section">
+            <div class="container">
+                <div class="donation-content">
+                    <div class="donation-text">
+                        <h2>☕ Support this project</h2>
+                        <p>This tool is completely <strong>free</strong> and maintained independently.</p>
+                        <a href="https://buymeacoffee.com/nerfandao" target="_blank" rel="noopener noreferrer"
+                            class="btn btn-donation">☕ Buy me a coffee</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Low Quality Image Generator. All rights reserved.</p>
+            <ul class="footer-links">
+                <li><a href="/en/about.html">About</a></li>
+                <li><a href="/en/privacy.html">Privacy</a></li>
+                <li><a href="/en/terms.html">Terms of Use</a></li>
+                <li><a href="/en/contact.html">Contact</a></li>
+                <li><a href="/en/blog/">Blog</a></li>
+            </ul>
+        </div>
+    </footer>
+    <script src="/en/js/app-en.js"></script>
+    <script src="/js/cookie-consent.js"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        document.getElementById('hamburger').addEventListener('click', function () { this.classList.toggle('active'); document.getElementById('navLinks').classList.toggle('open'); });
+    </script>
+</body>
+
+</html>
